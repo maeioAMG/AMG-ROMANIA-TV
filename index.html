@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AMG Romania TV – Diaspora Online</title>
+  <meta name="description" content="Conexiunea ta cu casa. Televiziunea românească pentru diaspora.">
+  <meta name="keywords" content="TV România, diaspora, streaming, AMG TV">
+  <meta name="author" content="MarioAMG">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
 
@@ -19,12 +25,12 @@
     </ul>
   </nav>
 
-  <!-- Banner principal cu imaginea și mesajul -->
+  <!-- Banner principal -->
   <header class="hero-banner">
     <div class="overlay">
       <h1>🇷🇴 AMG ROMANIA TV</h1>
       <p>Televiziunea românească pentru diaspora</p>
-      <p class="subtext">Conectează-te cu România, oriunde ai fi</p>
+      <p class="subtext">Conexiunea Ta cu Casa</p>
       <a href="#canale" class="btn">Vezi Canale</a>
     </div>
   </header>
@@ -32,8 +38,8 @@
   <!-- Secțiune canale -->
   <section id="canale">
     <h2>📺 Alege Canalul Preferat</h2>
-    <div class="grid-canale">
-      <!-- Canale vor fi integrate aici -->
+    <div class="grid-canale" id="canale-container">
+      <!-- Canale vor fi generate din tv-links.json -->
     </div>
   </section>
 
@@ -48,7 +54,8 @@
     <p>AMG Romania TV funcționează ca agregator de linkuri publice către surse oficiale. Nu redistribuie conținut, nu găzduiește streamuri și respectă toate drepturile de autor.</p>
   </footer>
 
-  <!-- Script pentru meniu mobil -->
+  <!-- Scripturi -->
+  <script src="script.js"></script>
   <script>
     const toggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
