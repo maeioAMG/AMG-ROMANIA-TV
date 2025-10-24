@@ -2,30 +2,21 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #000;
-  color: white;
+  color: #fff;
 }
 
-/* Container */
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-  padding-top: 80px; /* spațiu sub navbar fix */
-}
-
-/* Navbar fix sus */
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
   background-color: #111;
-  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 12px 24px;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
@@ -33,6 +24,7 @@ body {
 .navbar .logo {
   font-weight: bold;
   font-size: 1.2em;
+  color: #f0c040;
 }
 
 .navbar .nav-links {
@@ -40,9 +32,6 @@ body {
   display: flex;
   gap: 20px;
   margin: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  transform: translateX(0);
-  opacity: 1;
 }
 
 .navbar .nav-links li a {
@@ -64,34 +53,45 @@ body {
   cursor: pointer;
 }
 
-/* Banner cu imagine de impact */
-.banner {
-  background-image: url('IMAGINEA_TA'); /* înlocuiește cu URL-ul tău */
+/* Banner principal */
+.hero-banner {
+  background-image: url('banner.jpg'); /* Înlocuiește cu imaginea ta */
   background-size: cover;
   background-position: center;
-  height: 300px;
+  height: 100vh;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.banner .overlay {
+.hero-banner .overlay {
   background-color: rgba(0,0,0,0.6);
-  padding: 60px 20px;
+  padding: 40px;
+  border-radius: 12px;
 }
 
-.banner h1 {
-  font-size: 2.5em;
+.hero-banner h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.hero-banner p {
+  font-size: 1.4em;
+  color: #f0c040;
   margin-bottom: 10px;
 }
 
-.banner p {
-  font-size: 1.2em;
-  color: #f0c040;
+.hero-banner .subtext {
+  font-size: 1.1em;
+  color: #ccc;
+  margin-bottom: 20px;
 }
 
 .btn {
   display: inline-block;
-  margin-top: 20px;
   padding: 12px 24px;
   background-color: #f0c040;
   color: #000;
@@ -107,105 +107,28 @@ body {
 
 /* Secțiuni */
 section {
-  margin-top: 40px;
+  padding: 60px 20px;
+  text-align: center;
 }
 
 section h2 {
   font-size: 2em;
   margin-bottom: 20px;
   color: #00ffff;
-  text-align: center;
-}
-
-/* Căutare rapidă */
-.search-bar {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.search-bar input {
-  padding: 10px;
-  width: 80%;
-  max-width: 400px;
-  border-radius: 6px;
-  border: none;
-  font-size: 1em;
-}
-
-/* Filtru categorii */
-.filtru-categorii {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.filtru-categorii button {
-  background-color: #f0c040;
-  color: #000;
-  border: none;
-  padding: 10px 16px;
-  margin: 5px;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.filtru-categorii button:hover {
-  background-color: #ffd700;
-}
-
-/* Grila de canale */
-.grid-canale {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.grid-canale .canal {
-  display: inline-block;
-  text-align: center;
-  margin: 10px;
-}
-
-.grid-canale .canal img {
-  width: 120px;
-  border-radius: 10px;
-  background: white;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(255,255,255,0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-  cursor: pointer;
-}
-
-.grid-canale .canal img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(255,255,255,0.6);
-  filter: brightness(1.2);
-}
-
-.grid-canale .canal span {
-  display: block;
-  margin-top: 8px;
-  color: #fff;
-  font-weight: bold;
 }
 
 /* Contact */
 #contact {
-  text-align: center;
   font-size: 1.1em;
-  margin-top: 40px;
 }
 
 /* Footer */
 footer {
-  text-align: center;
-  font-size: 0.9em;
+  background-color: #111;
   color: #ccc;
-  margin-top: 60px;
+  font-size: 0.9em;
   padding: 20px;
+  text-align: center;
 }
 
 /* Responsive */
@@ -223,27 +146,17 @@ footer {
     right: 0;
     width: 200px;
     padding: 10px;
-    transform: translateX(100%);
-    opacity: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
   }
 
   .nav-links.active {
     display: flex;
-    transform: translateX(0);
-    opacity: 1;
   }
 
-  .grid-canale .canal img {
-    width: 90px;
-    padding: 6px;
-  }
-
-  .banner h1 {
+  .hero-banner h1 {
     font-size: 2em;
   }
 
-  .banner p {
+  .hero-banner p {
     font-size: 1em;
   }
 
@@ -254,9 +167,5 @@ footer {
 
   section h2 {
     font-size: 1.6em;
-  }
-
-  .search-bar input {
-    width: 90%;
   }
 }
