@@ -1,0 +1,14 @@
+[
+  {
+    "nume": "TVR 1",
+    "link": "https://www.tvrplus.ro/live/tvr1"
+  },
+  {
+    "nume": "Antena 1",
+    "link": "https://www.antena1.ro/live"
+  },
+  {
+    "nume": "Digi 24",
+    "link": "https://www.digi24.ro/live"
+  }
+]
