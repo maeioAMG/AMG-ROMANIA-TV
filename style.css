@@ -1,11 +1,20 @@
+/* Reset și font */
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  background-color: #000;
   color: white;
-  background-color: #000; /* fundal simplu pentru restul paginii */
 }
 
+/* Container central */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Header cu fundal imagine */
 header {
   background-image: url('https://copilot.microsoft.com/th/id/BCO.d3169e74-2d6e-4db2-bb32-8dda6e3f997f.png');
   background-size: cover;
@@ -14,4 +23,89 @@ header {
   padding: 80px 20px;
   text-align: center;
   color: white;
+  border-radius: 10px;
+}
+
+header h1 {
+  font-size: 2.8em;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.4em;
+  color: #f0c040;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #f0c040;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ffd700;
+}
+
+/* Secțiuni */
+section {
+  margin-top: 40px;
+}
+
+section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #00ffff;
+  text-align: center;
+}
+
+section h3 {
+  font-size: 1.5em;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  color: #ffcc00;
+  text-align: center;
+}
+
+/* Grila de canale */
+.grid-canale {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.grid-canale a {
+  display: inline-block;
+  text-align: center;
+}
+
+.grid-canale img {
+  width: 120px;
+  height: auto;
+  border-radius: 10px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.grid-canale img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.9em;
+  color: #ccc;
+  margin-top: 60px;
 }
