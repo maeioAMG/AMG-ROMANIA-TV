@@ -1,122 +1,23 @@
 [
-  {
-    "nume": "Digi 24",
-    "link": "https://www.digi24.ro/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Digi24_logo_2022.svg",
-    "categorie": "Știri"
-  },
-  {
-    "nume": "Antena 1",
-    "link": "https://www.antena1.ro/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Antena_1_logo_2022.svg",
-    "categorie": "General"
-  },
-  {
-    "nume": "PRO TV",
-    "link": "https://www.protv.ro/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Pro_TV_logo_2022.svg",
-    "categorie": "General"
-  },
-  {
-    "nume": "Kanal D",
-    "link": "https://kanald.ro/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Kanal_D_Romania_logo_2022.svg",
-    "categorie": "General"
-  },
-  {
-    "nume": "TVR 1",
-    "link": "https://www.tvr.ro/live.html",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3b/TVR_1_logo_2022.svg",
-    "categorie": "Știri"
-  },
-  {
-    "nume": "TVR 2",
-    "link": "https://www.tvr.ro/live.html",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3b/TVR_1_logo_2022.svg",
-    "categorie": "Cultură"
-  },
-  {
-    "nume": "Etno TV",
-    "link": "https://www.etnotv.ro/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Etno_TV_logo_2022.svg",
-    "categorie": "Muzică"
-  },
-  {
-    "nume": "Favorit TV",
-    "link": "https://www.favorittv.ro/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Favorit_TV_logo_2022.svg",
-    "categorie": "Muzică"
-  },
-  {
-    "nume": "Trinitas TV",
-    "link": "https://www.trinitas.tv/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Trinitas_TV_logo.svg",
-    "categorie": "Religie"
-  },
-  {
-    "nume": "Realitatea Plus",
-    "link": "https://www.realitatea.net/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Realitatea_Plus_logo.svg",
-    "categorie": "Știri"
-  },
-  {
-    "nume": "Național TV",
-    "link": "https://www.nationaltv.ro/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/2/2a/National_TV_logo.svg",
-    "categorie": "General"
-  },
-  {
-    "nume": "Național 24 Plus",
-    "link": "https://www.national24plus.ro/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/2/2a/National_TV_logo.svg",
-    "categorie": "General"
-  },
-  {
-    "nume": "B1 TV",
-    "link": "https://www.b1tv.ro/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/4/4e/B1_TV_logo.svg",
-    "categorie": "Știri"
-  },
-  {
-    "nume": "România TV",
-    "link": "https://www.romaniatv.net/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Romania_TV_logo.svg",
-    "categorie": "Știri"
-  },
-  {
-    "nume": "Prima TV",
-    "link": "https://www.primatv.ro/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Prima_TV_logo.svg",
-    "categorie": "General"
-  },
-  {
-    "nume": "Agro TV",
-    "link": "https://www.agrotv.ro/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Agro_TV_logo.svg",
-    "categorie": "Agricultură"
-  },
-  {
-    "nume": "Music Channel",
-    "link": "https://www.musicchannel.ro/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Music_Channel_logo.svg",
-    "categorie": "Muzică"
-  },
-  {
-    "nume": "Atomic TV",
-    "link": "https://www.atomictv.ro/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Atomic_TV_logo.svg",
-    "categorie": "Muzică"
-  },
-  {
-    "nume": "Taraf TV",
-    "link": "https://www.taraftv.ro/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Taraf_TV_logo.svg",
-    "categorie": "Muzică"
-  },
-  {
-    "nume": "TVR Moldova",
-    "link": "https://www.tvrmoldova.md/live",
-    "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3b/TVR_1_logo_2022.svg",
-    "categorie": "Moldova"
-  }
+  { "nume": "Digi 24", "link": "https://www.digi24.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Digi24_logo_2022.svg", "categorie": "Știri" },
+  { "nume": "Antena 1", "link": "https://www.antena1.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Antena_1_logo_2022.svg", "categorie": "General" },
+  { "nume": "PRO TV", "link": "https://www.protv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Pro_TV_logo_2022.svg", "categorie": "General" },
+  { "nume": "Kanal D", "link": "https://kanald.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Kanal_D_Romania_logo_2022.svg", "categorie": "General" },
+  { "nume": "TVR 1", "link": "https://www.tvr.ro/live.html", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3b/TVR_1_logo_2022.svg", "categorie": "Știri" },
+  { "nume": "TVR 2", "link": "https://www.tvr.ro/live.html", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3b/TVR_1_logo_2022.svg", "categorie": "Cultură" },
+  { "nume": "Etno TV", "link": "https://www.etnotv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Etno_TV_logo_2022.svg", "categorie": "Muzică" },
+  { "nume": "Favorit TV", "link": "https://www.favorittv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Favorit_TV_logo_2022.svg", "categorie": "Muzică" },
+  { "nume": "Trinitas TV", "link": "https://www.trinitas.tv/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Trinitas_TV_logo.svg", "categorie": "Religie" },
+  { "nume": "Realitatea Plus", "link": "https://www.realitatea.net/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Realitatea_Plus_logo.svg", "categorie": "Știri" },
+  { "nume": "Național TV", "link": "https://www.nationaltv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/2/2a/National_TV_logo.svg", "categorie": "General" },
+  { "nume": "Național 24 Plus", "link": "https://www.national24plus.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/2/2a/National_TV_logo.svg", "categorie": "General" },
+  { "nume": "B1 TV", "link": "https://www.b1tv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/4/4e/B1_TV_logo.svg", "categorie": "Știri" },
+  { "nume": "România TV", "link": "https://www.romaniatv.net/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Romania_TV_logo.svg", "categorie": "Știri" },
+  { "nume": "Prima TV", "link": "https://www.primatv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Prima_TV_logo.svg", "categorie": "General" },
+  { "nume": "Agro TV", "link": "https://www.agrotv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Agro_TV_logo.svg", "categorie": "Agricultură" },
+  { "nume": "Music Channel", "link": "https://www.musicchannel.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Music_Channel_logo.svg", "categorie": "Muzică" },
+  { "nume": "Atomic TV", "link": "https://www.atomictv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Atomic_TV_logo.svg", "categorie": "Muzică" },
+  { "nume": "Taraf TV", "link": "https://www.taraftv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Taraf_TV_logo.svg", "categorie": "Muzică" },
+  { "nume": "TVR Moldova", "link": "https://www.tvrmoldova.md/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3b/TVR_1_logo_2022.svg", "categorie": "Moldova" }
 ]
+
