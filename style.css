@@ -1,3 +1,27 @@
+/* Fundal general */
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('https://copilot.microsoft.com/th/id/BCO.d3169e74-2d6e-4db2-bb32-8dda6e3f997f.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* Overlay pentru lizibilitate */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* negru transparent */
+  z-index: -1;
+}
+
+/* Navigație */
 nav {
   background-color: rgba(0, 0, 0, 0.8);
   padding: 10px;
@@ -22,6 +46,7 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
+/* Butoane */
 .btn {
   display: inline-block;
   margin-top: 20px;
@@ -33,6 +58,7 @@ nav ul li a:hover {
   border-radius: 5px;
 }
 
+/* Secțiune știri */
 section#stiri ul {
   list-style: none;
   padding: 0;
@@ -46,3 +72,13 @@ section#stiri li a {
 section#stiri li a:hover {
   text-decoration: underline;
 }
+
+/* Container general pentru conținut */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
