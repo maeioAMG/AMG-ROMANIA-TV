@@ -66,7 +66,7 @@ body {
 
 /* Banner cu imagine de impact */
 .banner {
-  background-image: url('IMAGINEA_TA'); /* înlocuiește cu URL-ul imaginii tale */
+  background-image: url('IMAGINEA_TA'); /* înlocuiește cu URL-ul tău */
   background-size: cover;
   background-position: center;
   height: 300px;
@@ -115,6 +115,21 @@ section h2 {
   margin-bottom: 20px;
   color: #00ffff;
   text-align: center;
+}
+
+/* Căutare rapidă */
+.search-bar {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  padding: 10px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1em;
 }
 
 /* Filtru categorii */
@@ -239,5 +254,9 @@ footer {
 
   section h2 {
     font-size: 1.6em;
+  }
+
+  .search-bar input {
+    width: 90%;
   }
 }
