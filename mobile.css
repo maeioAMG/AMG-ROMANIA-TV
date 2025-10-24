@@ -1,4 +1,36 @@
 @media screen and (max-width: 768px) {
+  /* Meniu mobil */
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #111;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 10px;
+    z-index: 1001;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin-bottom: 10px;
+  }
+
+  .nav-links li a {
+    color: #f0c040;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  /* Header */
   header h1 {
     font-size: 2em;
   }
@@ -12,6 +44,7 @@
     font-size: 0.9em;
   }
 
+  /* Secțiuni */
   section h2 {
     font-size: 1.5em;
   }
@@ -20,15 +53,18 @@
     font-size: 1.2em;
   }
 
+  /* Sigle TV */
   .grid-canale img {
     width: 90px;
     padding: 6px;
   }
 
+  /* Container */
   .container {
     padding: 10px;
   }
 
+  /* Footer */
   footer {
     font-size: 0.8em;
   }
