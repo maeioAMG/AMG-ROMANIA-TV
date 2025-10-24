@@ -31,8 +31,72 @@
   <!-- Grila completă -->
   <section id="grila-completa">
     <h2>📺 Alege Canalul Preferat</h2>
+
+    <!-- Căutare rapidă -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Caută un canal...">
+    </div>
+
+    <!-- Filtru categorii -->
+    <div class="filtru-categorii">
+      <button data-filter="toate">Toate</button>
+      <button data-filter="stiri">Știri</button>
+      <button data-filter="general">General</button>
+      <button data-filter="filme">Filme</button>
+      <button data-filter="muzica">Muzică</button>
+      <button data-filter="copii">Copii</button>
+    </div>
+
+    <!-- Canale -->
     <div class="grid-canale">
-      <!-- Canale vor fi adăugate aici -->
+      <div class="canal" data-category="stiri" data-name="digi 24">
+        <a href="https://www.digi24.ro/live" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Digi24_logo_2022.svg" alt="Digi 24">
+          <span>Digi 24</span>
+        </a>
+      </div>
+      <div class="canal" data-category="general" data-name="antena 1">
+        <a href="https://www.antena1.ro/live" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Antena_1_logo_2022.svg" alt="Antena 1">
+          <span>Antena 1</span>
+        </a>
+      </div>
+      <div class="canal" data-category="general" data-name="pro tv">
+        <a href="https://www.protv.ro/live" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Pro_TV_logo_2022.svg" alt="PRO TV">
+          <span>PRO TV</span>
+        </a>
+      </div>
+      <div class="canal" data-category="general" data-name="kanal d">
+        <a href="https://kanald.ro/live" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Kanal_D_Romania_logo_2022.svg" alt="Kanal D">
+          <span>Kanal D</span>
+        </a>
+      </div>
+      <div class="canal" data-category="stiri" data-name="tvr 1">
+        <a href="https://www.tvr.ro/live.html" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/TVR_1_logo_2022.svg" alt="TVR 1">
+          <span>TVR 1</span>
+        </a>
+      </div>
+      <div class="canal" data-category="muzica" data-name="etno tv">
+        <a href="https://www.etnotv.ro/live" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Etno_TV_logo_2022.svg" alt="Etno TV">
+          <span>Etno TV</span>
+        </a>
+      </div>
+      <div class="canal" data-category="muzica" data-name="favorit tv">
+        <a href="https://www.favorittv.ro/live" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Favorit_TV_logo_2022.svg" alt="Favorit TV">
+          <span>Favorit TV</span>
+        </a>
+      </div>
+      <div class="canal" data-category="copii" data-name="boomerang">
+        <a href="https://www.boomerang-tv.ro/live" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Boomerang_logo.svg" alt="Boomerang">
+          <span>Boomerang</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -49,12 +113,44 @@
     </p>
   </footer>
 
-  <!-- Script pentru meniu mobil -->
+  <!-- Script pentru meniu, filtrare și căutare -->
   <script>
+    // Meniu mobil
     const toggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     toggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
+    });
+
+    // Filtrare categorii
+    const buttons = document.querySelectorAll('.filtru-categorii button');
+    const canale = document.querySelectorAll('.grid-canale .canal');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        canale.forEach(canal => {
+          if (filter === 'toate' || canal.getAttribute('data-category') === filter) {
+            canal.style.display = 'inline-block';
+          } else {
+            canal.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Căutare rapidă
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      canale.forEach(canal => {
+        const name = canal.getAttribute('data-name');
+        if (name.includes(query)) {
+          canal.style.display = 'inline-block';
+        } else {
+          canal.style.display = 'none';
+        }
+      });
     });
   </script>
 </body>
