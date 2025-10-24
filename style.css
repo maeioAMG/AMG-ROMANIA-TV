@@ -1,23 +1,55 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #000;
-  color: #fff;
-  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
+  color: #fff;
+  background: url('amg-bg.jpeg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 header {
-  background-color: #111;
-  padding: 20px;
-}
-
-section {
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 30px;
 }
 
+h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+p {
+  font-size: 1.2em;
+  color: #f0c040;
+}
+
+section {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+ul#lista-canale {
+  list-style: none;
+  padding: 0;
+}
+
+ul#lista-canale li {
+  margin: 10px 0;
+  font-size: 1.1em;
+}
+
+ul#lista-canale a {
+  color: #00ffff;
+  text-decoration: none;
+}
+
+ul#lista-canale a:hover {
+  text-decoration: underline;
+}
+
 footer {
-  background-color: #111;
-  padding: 10px;
-  font-size: 0.8em;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  font-size: 0.9em;
 }
