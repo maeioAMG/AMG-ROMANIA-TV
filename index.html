@@ -1,161 +1,61 @@
-<!-- GRILĂ COMPLETĂ CU 30 CANALE -->
-<div class="grid-canale">
-  <!-- Digi 24 -->
-  <div class="canal" data-category="stiri" data-name="digi 24">
-    <a href="https://www.digi24.ro/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Digi24_logo_2022.svg" alt="Digi 24">
-      <span>Digi 24</span>
-    </a>
-  </div>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMG Romania TV – Diaspora Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-  <!-- Antena 1 -->
-  <div class="canal" data-category="general" data-name="antena 1">
-    <a href="https://www.antena1.ro/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Antena_1_logo_2022.svg" alt="Antena 1">
-      <span>Antena 1</span>
-    </a>
-  </div>
+  <!-- Meniu fix sus -->
+  <nav class="navbar">
+    <div class="logo">📡 AMG Romania TV</div>
+    <button class="menu-toggle" aria-label="Deschide meniul">☰</button>
+    <ul class="nav-links">
+      <li><a href="#">Acasă</a></li>
+      <li><a href="#canale">Canale</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <!-- PRO TV -->
-  <div class="canal" data-category="general" data-name="pro tv">
-    <a href="https://www.protv.ro/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Pro_TV_logo_2022.svg" alt="PRO TV">
-      <span>PRO TV</span>
-    </a>
-  </div>
+  <!-- Banner principal cu imaginea și mesajul -->
+  <header class="hero-banner">
+    <div class="overlay">
+      <h1>🇷🇴 AMG ROMANIA TV</h1>
+      <p>Televiziunea românească pentru diaspora</p>
+      <p class="subtext">Conectează-te cu România, oriunde ai fi</p>
+      <a href="#canale" class="btn">Vezi Canale</a>
+    </div>
+  </header>
 
-  <!-- Kanal D -->
-  <div class="canal" data-category="general" data-name="kanal d">
-    <a href="https://kanald.ro/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Kanal_D_Romania_logo_2022.svg" alt="Kanal D">
-      <span>Kanal D</span>
-    </a>
-  </div>
+  <!-- Secțiune canale -->
+  <section id="canale">
+    <h2>📺 Alege Canalul Preferat</h2>
+    <div class="grid-canale">
+      <!-- Canale vor fi integrate aici -->
+    </div>
+  </section>
 
-  <!-- TVR 1 -->
-  <div class="canal" data-category="stiri" data-name="tvr 1">
-    <a href="https://www.tvr.ro/live.html" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/TVR_1_logo_2022.svg" alt="TVR 1">
-      <span>TVR 1</span>
-    </a>
-  </div>
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Scrie-ne pe Telegram: <strong>@AMGRomaniaTV</strong></p>
+  </section>
 
-  <!-- TVR 2 -->
-  <div class="canal" data-category="cultura" data-name="tvr 2">
-    <a href="https://www.tvr.ro/live.html" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/TVR_1_logo_2022.svg" alt="TVR 2">
-      <span>TVR 2</span>
-    </a>
-  </div>
+  <!-- Footer -->
+  <footer>
+    <p>AMG Romania TV funcționează ca agregator de linkuri publice către surse oficiale. Nu redistribuie conținut, nu găzduiește streamuri și respectă toate drepturile de autor.</p>
+  </footer>
 
-  <!-- Etno TV -->
-  <div class="canal" data-category="muzica" data-name="etno tv">
-    <a href="https://www.etnotv.ro/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Etno_TV_logo_2022.svg" alt="Etno TV">
-      <span>Etno TV</span>
-    </a>
-  </div>
+  <!-- Script pentru meniu mobil -->
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
 
-  <!-- Favorit TV -->
-  <div class="canal" data-category="muzica" data-name="favorit tv">
-    <a href="https://www.favorittv.ro/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Favorit_TV_logo_2022.svg" alt="Favorit TV">
-      <span>Favorit TV</span>
-    </a>
-  </div>
-
-  <!-- Trinitas TV -->
-  <div class="canal" data-category="religie" data-name="trinitas tv">
-    <a href="https://www.trinitas.tv/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Trinitas_TV_logo.svg" alt="Trinitas TV">
-      <span>Trinitas TV</span>
-    </a>
-  </div>
-
-  <!-- Realitatea Plus -->
-  <div class="canal" data-category="stiri" data-name="realitatea plus">
-    <a href="https://www.realitatea.net/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Realitatea_Plus_logo.svg" alt="Realitatea Plus">
-      <span>Realitatea Plus</span>
-    </a>
-  </div>
-
-  <!-- Național TV -->
-  <div class="canal" data-category="general" data-name="national tv">
-    <a href="https://www.nationaltv.ro/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/National_TV_logo.svg" alt="Național TV">
-      <span>Național TV</span>
-    </a>
-  </div>
-
-  <!-- Național 24 Plus -->
-  <div class="canal" data-category="general" data-name="national 24 plus">
-    <a href="https://www.national24plus.ro/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/National_TV_logo.svg" alt="Național 24 Plus">
-      <span>Național 24 Plus</span>
-    </a>
-  </div>
-
-  <!-- B1 TV -->
-  <div class="canal" data-category="stiri" data-name="b1 tv">
-    <a href="https://www.b1tv.ro/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/B1_TV_logo.svg" alt="B1 TV">
-      <span>B1 TV</span>
-    </a>
-  </div>
-
-  <!-- România TV -->
-  <div class="canal" data-category="stiri" data-name="romania tv">
-    <a href="https://www.romaniatv.net/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Romania_TV_logo.svg" alt="România TV">
-      <span>România TV</span>
-    </a>
-  </div>
-
-  <!-- Prima TV -->
-  <div class="canal" data-category="general" data-name="prima tv">
-    <a href="https://www.primatv.ro/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Prima_TV_logo.svg" alt="Prima TV">
-      <span>Prima TV</span>
-    </a>
-  </div>
-
-  <!-- Agro TV -->
-  <div class="canal" data-category="agricultura" data-name="agro tv">
-    <a href="https://www.agrotv.ro/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Agro_TV_logo.svg" alt="Agro TV">
-      <span>Agro TV</span>
-    </a>
-  </div>
-
-  <!-- Music Channel -->
-  <div class="canal" data-category="muzica" data-name="music channel">
-    <a href="https://www.musicchannel.ro/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Music_Channel_logo.svg" alt="Music Channel">
-      <span>Music Channel</span>
-    </a>
-  </div>
-
-  <!-- Atomic TV -->
-  <div class="canal" data-category="muzica" data-name="atomic tv">
-    <a href="https://www.atomictv.ro/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Atomic_TV_logo.svg" alt="Atomic TV">
-      <span>Atomic TV</span>
-    </a>
-  </div>
-
-  <!-- Taraf TV -->
-  <div class="canal" data-category="muzica" data-name="taraf tv">
-    <a href="https://www.taraftv.ro/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Taraf_TV_logo.svg" alt="Taraf TV">
-      <span>Taraf TV</span>
-    </a>
-  </div>
-
-  <!-- TVR Moldova -->
-  <div class="canal" data-category="moldova" data-name="tvr moldova">
-    <a href="https://www.tvrmoldova.md/live" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/TVR_1_logo_2022.svg" alt="
 </body>
 </html>
-
