@@ -8,6 +8,18 @@
   <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
+  <!-- Meniu mobil fix sus -->
+  <nav class="navbar">
+    <div class="logo">📺 AMG TV</div>
+    <button class="menu-toggle" aria-label="Deschide meniul">☰</button>
+    <ul class="nav-links">
+      <li><a href="#">Acasă</a></li>
+      <li><a href="#grila-tv">Canale</a></li>
+      <li><a href="#categorii">Categorii</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <div class="container">
     <header>
       <h1>🇷🇴 AMG Romania TV</h1>
@@ -32,11 +44,27 @@
       <!-- Continuă cu celelalte categorii exact cum ai trimis -->
     </section>
 
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Scrie-ne pe Telegram: <strong>@AMGRomaniaTV</strong></p>
+    </section>
+
     <footer>
       <p style="font-size: 0.9em; color: #ccc;">
         AMG Romania TV funcționează ca agregator de linkuri publice către surse oficiale. Nu redistribuie conținut, nu găzduiește streamuri și respectă toate drepturile de autor. Pentru conținutul fiecărui canal, vizitați site-ul oficial al acestuia.
       </p>
     </footer>
   </div>
+
+  <!-- Script pentru meniu mobil -->
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
+
