@@ -1,3 +1,108 @@
+/* Fundal general */
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('https://copilot.microsoft.com/th/id/BCO.d3169e74-2d6e-4db2-bb32-8dda6e3f997f.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* Overlay pentru lizibilitate */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* Container central */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2em;
+  color: #f0c040;
+}
+
+/* Navigație */
+nav {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: #f0c040;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Buton */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #f0c040;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* Secțiuni */
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: #00ffff;
+}
+
+section h3 {
+  font-size: 1.4em;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #ffcc00;
+}
+
+/* Grila de canale */
 .grid-canale {
   display: flex;
   flex-wrap: wrap;
@@ -11,8 +116,18 @@
   height: auto;
   border-radius: 8px;
   transition: transform 0.3s ease;
+  background: white;
+  padding: 5px;
 }
 
 .grid-canale img:hover {
   transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.9em;
+  color: #ccc;
+  margin-top: 40px;
 }
