@@ -13,11 +13,16 @@
     right: 0;
     width: 200px;
     padding: 10px;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
     z-index: 1001;
   }
 
   .nav-links.active {
     display: flex;
+    transform: translateX(0);
+    opacity: 1;
   }
 
   .nav-links li {
@@ -30,42 +35,53 @@
     font-weight: bold;
   }
 
-  /* Header */
-  header h1 {
+  /* Banner */
+  .banner h1 {
     font-size: 2em;
   }
 
-  header p {
-    font-size: 1.1em;
+  .banner p {
+    font-size: 1em;
   }
 
   .btn {
+    font-size: 0.9em;
     padding: 10px 18px;
+  }
+
+  /* Căutare */
+  .search-bar input {
+    width: 90%;
+    font-size: 1em;
+  }
+
+  /* Filtru */
+  .filtru-categorii button {
+    padding: 8px 12px;
+    font-size: 0.9em;
+  }
+
+  /* Canale */
+  .grid-canale .canal img {
+    width: 90px;
+    padding: 6px;
+  }
+
+  .grid-canale .canal span {
     font-size: 0.9em;
   }
 
   /* Secțiuni */
   section h2 {
-    font-size: 1.5em;
+    font-size: 1.6em;
   }
 
-  section h3 {
-    font-size: 1.2em;
+  #contact {
+    font-size: 1em;
   }
 
-  /* Sigle TV */
-  .grid-canale img {
-    width: 90px;
-    padding: 6px;
-  }
-
-  /* Container */
-  .container {
-    padding: 10px;
-  }
-
-  /* Footer */
   footer {
     font-size: 0.8em;
+    padding: 10px;
   }
 }
