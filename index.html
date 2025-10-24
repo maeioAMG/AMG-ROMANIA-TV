@@ -8,59 +8,51 @@
   <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
-  <!-- Meniu mobil fix sus -->
+  <!-- Meniu fix sus -->
   <nav class="navbar">
     <div class="logo">📺 AMG TV</div>
     <button class="menu-toggle" aria-label="Deschide meniul">☰</button>
     <ul class="nav-links">
       <li><a href="#">Acasă</a></li>
-      <li><a href="#grila-tv">Canale</a></li>
-      <li><a href="#categorii">Categorii</a></li>
+      <li><a href="#grila-completa">Canale</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <div class="container">
-    <header>
-      <h1>🇷🇴 AMG Romania TV</h1>
+  <!-- Banner de impact -->
+  <header class="banner">
+    <div class="overlay">
+      <h1>🇷🇴 AMG ROMANIA TV</h1>
       <p>Conexiunea Ta cu Casa</p>
-      <a href="#grila-tv" class="btn">Vezi Canalele</a>
-    </header>
+      <a href="#grila-completa" class="btn">Vezi Canale</a>
+    </div>
+  </header>
 
-    <section id="grila-tv">
-      <h2>Grila Completă TV Românească</h2>
+  <!-- Grila completă -->
+  <section id="grila-completa">
+    <h2>📺 Alege Canalul Preferat</h2>
+    <div class="grid-canale">
+      <!-- Canale vor fi adăugate aici -->
+    </div>
+  </section>
 
-      <!-- Categorii: Știri, Sport, Filme, Cultură, Copii, Muzică, Regionale -->
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Scrie-ne pe Telegram: <strong>@AMGRomaniaTV</strong></p>
+  </section>
 
-      <!-- Exemplu: Știri -->
-      <h3>📰 Știri</h3>
-      <div class="grid-canale">
-        <a href="https://www.digi24.ro/live" target="_blank">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Digi24_logo_2022.svg" alt="Digi 24">
-        </a>
-        <!-- ... restul canalelor ... -->
-      </div>
-
-      <!-- Continuă cu celelalte categorii exact cum ai trimis -->
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Scrie-ne pe Telegram: <strong>@AMGRomaniaTV</strong></p>
-    </section>
-
-    <footer>
-      <p style="font-size: 0.9em; color: #ccc;">
-        AMG Romania TV funcționează ca agregator de linkuri publice către surse oficiale. Nu redistribuie conținut, nu găzduiește streamuri și respectă toate drepturile de autor. Pentru conținutul fiecărui canal, vizitați site-ul oficial al acestuia.
-      </p>
-    </footer>
-  </div>
+  <!-- Footer -->
+  <footer>
+    <p>
+      AMG Romania TV funcționează ca agregator de linkuri publice către surse oficiale. Nu redistribuie conținut, nu găzduiește streamuri și respectă toate drepturile de autor.
+    </p>
+  </footer>
 
   <!-- Script pentru meniu mobil -->
   <script>
     const toggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-
     toggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
