@@ -1,4 +1,3 @@
-// ACESTA ESTE CODUL FINAL ȘI CORECT PENTRU script.js
 window.onload = function() {
     const menuToggle = document.getElementById('menu-toggle-btn');
     const mainNav = document.getElementById('main-nav');
@@ -6,19 +5,32 @@ window.onload = function() {
     const channelsList = document.getElementById('channels-list');
     let activeChannelButton = null; // Variabilă pentru a urmări butonul activ
 
-    // Numele de fișier al logo-ului (Asigurați-vă că fișierul amg-logo.jpg există)
-    const PLACEHOLDER_LOGO = "amg-logo.jpg";
+    // NOTĂ: Am eliminat PLACEHOLDER_LOGO deoarece folosim acum sigle reale din URL-uri.
     
-    // ATENȚIE: Adăugăm proprietatea 'url' cu link-uri de test.
-    // Înlocuiți aceste URL-uri cu cele reale de la Cloudflare când le aveți!
+    // LISTA ACTUALIZATĂ A CANALELOR CU DATE REALE
     const tvChannels = [
-        // Am adăugat URL-uri de test care vor afișa un ecran negru sau o eroare (până la înlocuirea lor cu link-uri reale)
-        { name: "AMG LIVE", id: "amglive", image: PLACEHOLDER_LOGO, url: "https://simulare-cloudflare-amg.net/embed.html" },
-        { name: "PRO TV", id: "protv", image: PLACEHOLDER_LOGO, url: "https://simulare-cloudflare-protv.net/embed.html" },
-        { name: "SPORT 1", id: "sport1", image: PLACEHOLDER_LOGO, url: "https://simulare-cloudflare-sport1.net/embed.html" },
-        { name: "ȘTIRI", id: "stiri", image: PLACEHOLDER_LOGO, url: "https://simulare-cloudflare-stiri.net/embed.html" },
-        { name: "FILM", id: "film", image: PLACEHOLDER_LOGO, url: "https://simulare-cloudflare-film.net/embed.html" },
-        { name: "Muzică", id: "muzica", image: PLACEHOLDER_LOGO, url: "https://simulare-cloudflare-muzica.net/embed.html" }
+        // ATENȚIE: Aceste 'link'-uri vor funcționa doar dacă sursa permite încorporarea (iframe).
+        // Majoritatea site-urilor TV blochează acest lucru din motive de securitate/drepturi.
+        { "nume": "Digi 24", "link": "https://www.digi24.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Digi24_logo_2022.svg", "categorie": "Știri" },
+        { "nume": "Antena 1", "link": "https://www.antena1.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Antena_1_logo_2022.svg", "categorie": "General" },
+        { "nume": "PRO TV", "link": "https://www.protv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Pro_TV_logo_2022.svg", "categorie": "General" },
+        { "nume": "Kanal D", "link": "https://kanald.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Kanal_D_Romania_logo_2022.svg", "categorie": "General" },
+        { "nume": "TVR 1", "link": "https://www.tvr.ro/live.html", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3b/TVR_1_logo_2022.svg", "categorie": "Știri" },
+        { "nume": "TVR 2", "link": "https://www.tvr.ro/live.html", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3b/TVR_1_logo_2022.svg", "categorie": "Cultură" },
+        { "nume": "Etno TV", "link": "https://www.etnotv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Etno_TV_logo_2022.svg", "categorie": "Muzică" },
+        { "nume": "Favorit TV", "link": "https://www.favorittv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Favorit_TV_logo_2022.svg", "categorie": "Muzică" },
+        { "nume": "Trinitas TV", "link": "https://www.trinitas.tv/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Trinitas_TV_logo.svg", "categorie": "Religie" },
+        { "nume": "Realitatea Plus", "link": "https://www.realitatea.net/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Realitatea_Plus_logo.svg", "categorie": "Știri" },
+        { "nume": "Național TV", "link": "https://www.nationaltv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/2/2a/National_TV_logo.svg", "categorie": "General" },
+        { "nume": "Național 24 Plus", "link": "https://www.national24plus.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/2/2a/National_TV_logo.svg", "categorie": "General" },
+        { "nume": "B1 TV", "link": "https://www.b1tv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/4/4e/B1_TV_logo.svg", "categorie": "Știri" },
+        { "nume": "România TV", "link": "https://www.romaniatv.net/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Romania_TV_logo.svg", "categorie": "Știri" },
+        { "nume": "Prima TV", "link": "https://www.primatv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Prima_TV_logo.svg", "categorie": "General" },
+        { "nume": "Agro TV", "link": "https://www.agrotv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Agro_TV_logo.svg", "categorie": "Agricultură" },
+        { "nume": "Music Channel", "link": "https://www.musicchannel.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Music_Channel_logo.svg", "categorie": "Muzică" },
+        { "nume": "Atomic TV", "link": "https://www.atomictv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Atomic_TV_logo.svg", "categorie": "Muzică" },
+        { "nume": "Taraf TV", "link": "https://www.taraftv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Taraf_TV_logo.svg", "categorie": "Muzică" },
+        { "nume": "TVR Moldova", "link": "https://www.tvrmoldova.md/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3b/TVR_1_logo_2022.svg", "categorie": "Moldova" }
     ];
 
     // 1. Logica Meniului Hamburger (Mobil) - Nemodificată
@@ -32,7 +44,7 @@ window.onload = function() {
     // Funcția care încarcă canalul în player și marchează butonul activ
     function loadChannel(channelName, channelUrl, buttonElement) {
         
-        // 1. Actualizează Playerul cu IFRAME (Elimină textul de simulare)
+        // 1. Actualizează Playerul cu IFRAME
         livePlayer.innerHTML = `
             <div class="player-content-wrapper" style="width: 100%; height: 100%;">
                 <iframe src="${channelUrl}" 
@@ -66,19 +78,19 @@ window.onload = function() {
             const button = document.createElement('button');
             button.className = 'channel-button';
             
-            // Structura HTML pentru noul design de logo-uri
-            button.innerHTML = `<img src="${channel.image}" alt="${channel.name} Logo"><span>${channel.name}</span>`;
+            // MODIFICARE: Folosim channel.sigla și channel.nume
+            button.innerHTML = `<img src="${channel.sigla}" alt="${channel.nume} Logo"><span>${channel.nume}</span>`;
             
-            // Atribuie funcția la click (transmite numele, URL-ul și elementul buton)
-            button.onclick = () => loadChannel(channel.name, channel.url, button);
+            // MODIFICARE: Atribuie funcția la click (folosim channel.nume și channel.link)
+            button.onclick = () => loadChannel(channel.nume, channel.link, button);
             channelsList.appendChild(button);
         });
         
         // Încarcă canalul implicit la pornire și marchează primul buton
         const firstButton = channelsList.querySelector('.channel-button');
         if(firstButton) {
-            // Asigură-te că transmiți URL-ul primului canal
-            loadChannel(tvChannels[0].name, tvChannels[0].url, firstButton);
+            // MODIFICARE: Transmite numele și link-ul primului canal
+            loadChannel(tvChannels[0].nume, tvChannels[0].link, firstButton);
         }
     }
 };
