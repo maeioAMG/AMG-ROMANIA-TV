@@ -101,7 +101,7 @@ section {
   text-align: center;
 }
 
-/* --- LIVE PLAYER (CORECTAT ȘI FINALIZAT) --- */
+/* --- LIVE PLAYER (CORECTAT PENTRU 16:9) --- */
 .live-player-section {
     padding: 100px 20px 40px; 
     background-color: #000;
@@ -112,9 +112,9 @@ section {
     position: relative; 
     width: 95%; 
     max-width: 1300px; 
-    /* Păstrează raportul 16:9, iar min-height asigură că nu este o bandă subțire */
+    /* Păstrează raportul 16:9 */
     padding-bottom: 56.25%; /* Raport 16:9 */
-    min-height: 400px; /* NOU: FORȚEAZĂ O ÎNĂLȚIME MINIMĂ VIZIBILĂ */
+    /* ATENTIE: LINIA min-height: 400px; A FOST ELIMINATĂ AICI PENTRU A PĂSTRA RAPORTUL 16:9 */
     height: 0; 
     margin: 0 auto;
     background-color: #111;
@@ -136,15 +136,15 @@ section {
     padding: 50px;
 }
 
-/* --- BARA DE FILTRARE (NOU) --- */
+/* --- BARA DE FILTRARE --- */
 .filter-bar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 10px;
-    gap: 10px; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 10px;
+    gap: 10px; 
 }
 
 
