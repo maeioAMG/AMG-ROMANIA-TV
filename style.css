@@ -1,165 +1,234 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #000;
-  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  background-color: #000;
+  color: #fff;
 }
 
+/* --- NAV BAR --- */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #111;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 24px;
-  z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  z-index: 1000;
 }
 
 .navbar .logo {
-  font-weight: bold;
-  font-size: 1.2em;
-  color: #f0c040;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #f0c040;
 }
 
 .navbar .nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+  list-style: none;
+  display: flex;
+  gap: 20px;
 }
 
 .navbar .nav-links li a {
-  color: #f0c040;
-  text-decoration: none;
-  font-weight: bold;
+  color: #f0c040;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .menu-toggle {
-  display: none;
-  font-size: 1.5em;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
+  display: none;
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
+/* --- HERO BANNER --- */
 .hero-banner {
-  background-image: url('amg-bg.jpeg');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  background-image: url('amg-bg.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .hero-banner .overlay {
-  background-color: rgba(0,0,0,0.6);
-  padding: 40px;
-  border-radius: 12px;
+  background-color: rgba(0,0,0,0.6);
+  padding: 40px;
+  border-radius: 12px;
 }
 
 .hero-banner h1 {
-  font-size: 3em;
-  margin-bottom: 10px;
-  color: #fff;
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #fff;
 }
 
 .hero-banner p {
-  font-size: 1.4em;
-  color: #f0c040;
-  margin-bottom: 10px;
+  font-size: 1.4em;
+  color: #f0c040;
+  margin-bottom: 10px;
 }
 
 .hero-banner .subtext {
-  font-size: 1.1em;
-  color: #ccc;
-  margin-bottom: 20px;
+  font-size: 1.1em;
+  color: #ccc;
+  margin-bottom: 20px;
 }
 
 .btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #f0c040;
-  color: #000;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 6px;
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #f0c040;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
 }
 
 section {
-  padding: 80px 20px;
-  text-align: center;
+  padding: 80px 20px;
+  text-align: center;
 }
 
+/* --- LIVE PLAYER (NOU) --- */
+.live-player-section {
+    padding: 100px 20px 40px; /* Padding ajustat pentru a compensa navbar-ul fix */
+    background-color: #000;
+    text-align: center;
+}
+
+.video-placeholder {
+    position: relative; /* Esențial pentru poziționarea informației despre canal */
+    width: 90%;
+    max-width: 1000px;
+    /* Formula 16:9 pentru a menține aspectul video: 56.25% din lățime */
+    padding-bottom: 56.25%; 
+    height: 0; 
+    margin: 0 auto;
+    background-color: #111;
+    border-radius: 8px;
+    overflow: hidden; /* Ascunde conținutul iframe-ului care depășește */
+    box-shadow: 0 0 15px rgba(240, 192, 64, 0.3);
+}
+
+.video-placeholder iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-placeholder p {
+    color: #f0c040;
+    padding: 50px;
+}
+
+/* --- GRILA CANALE --- */
 .grid-canale {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 16px;
-  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  padding: 10px;
+  max-width: 1200px; /* Limitează grila pentru a nu fi prea largă */
+  margin: 0 auto;
 }
 
 .canal {
-  background-color: #111;
-  border-radius: 8px;
-  padding: 10px;
-  transition: transform 0.3s ease;
+  background-color: #111;
+  border-radius: 8px;
+  padding: 10px;
+  border: 3px solid transparent; /* Border transparent pentru a nu schimba dimensiunea */
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  cursor: pointer; /* Semnalizează că este un element interactiv */
 }
 
 .canal:hover {
-  transform: scale(1.05);
+  transform: scale(1.05);
+  border-color: rgba(240, 192, 64, 0.5); /* Bordură subtilă la hover */
+}
+
+/* STIL NOU: CANALUL ACTIV */
+.canal.active {
+    border: 3px solid #f0c040; /* Bordură solidă pentru canalul curent */
+    background-color: #222; 
+    box-shadow: 0 0 10px rgba(240, 192, 64, 0.7);
 }
 
 .canal img {
-  max-width: 100%;
-  height: 50px;
-  object-fit: contain;
-  margin-bottom: 8px;
+  max-width: 100%;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 8px;
 }
 
 .canal span {
-  display: block;
-  font-weight: bold;
-  color: #f0c040;
+  display: block;
+  font-weight: bold;
+  color: #f0c040;
 }
 
+/* --- BUTOANE FILTRARE (Păstrate pentru pasul următor) --- */
 .filter-btn {
-  padding: 8px 16px;
-  background-color: #f0c040;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  padding: 8px 16px;
+  background-color: #f0c040;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.filter-btn:hover {
+    background-color: #ffd700;
 }
 
 .filter-btn.active {
-  background-color: #ffd700;
-  color: #000;
+  background-color: #ffd700;
+  color: #000;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
+/* --- RESPONSIVITATE --- */
 @media screen and (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
+    .live-player-section {
+        padding-top: 80px; /* Reducem padding-ul pentru mobil */
+    }
 
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: #111;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 200px;
-    padding: 10px;
-  }
+    .hero-banner h1 {
+        font-size: 2.5em;
+    }
+    
+  .menu-toggle {
+    display: block;
+  }
 
-  .nav-links.active {
-    display: flex;
-  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #111;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
 }
