@@ -1,9 +1,9 @@
 /* Definițiile Culorilor și Fonturilor */
 :root {
-    --color-primary: #031737;       /* Albastru Noapte (Background) */
-    --color-secondary: #00D2FF;     /* Albastru Electric (Accent) */
-    --color-cta: #FFC900;           /* Auriu/Galben Viu (CTA) */
-    --color-text-light: #FFFFFF;    /* Alb Pur */
+    --color-primary: #031737;        /* Albastru Noapte (Background) */
+    --color-secondary: #00D2FF;      /* Albastru Electric (Accent) */
+    --color-cta: #FFC900;            /* Auriu/Galben Viu (CTA) */
+    --color-text-light: #FFFFFF;     /* Alb Pur */
     --font-heading: 'Montserrat', sans-serif;
     --font-primary: 'Roboto', sans-serif;
 }
