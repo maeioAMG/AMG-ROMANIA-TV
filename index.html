@@ -1,68 +1,51 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AMG Romania TV – Diaspora Online</title>
-  <meta name="description" content="Conexiunea ta cu casa. Televiziunea românească pentru diaspora.">
-  <meta name="keywords" content="TV România, diaspora, streaming, AMG TV">
-  <meta name="author" content="MarioAMG">
-  <meta name="theme-color" content="#000000">
-  <link rel="icon" href="favicon.png" type="image/png">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMG ROMANIA TV: Conexiunea Ta cu Casa</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    
+    <header>
+        <div class="logo">
+            <img src="images/logo_amgtv.png" alt="AMG Romania TV Logo">
+            <h1>AMG ROMANIA TV</h1>
+        </div>
+        <nav>
+            <a href="#">LIVE TV</a>
+            <a href="#">PROGRAM TV</a>
+            <a href="#">VOD / ARHIVĂ</a>
+        </nav>
+        <div class="actions">
+            <button class="cta-button">ABONEAZĂ-TE ACUM</button>
+        </div>
+    </header>
 
-  <!-- Meniu fix sus -->
-  <nav class="navbar">
-    <div class="logo">📡 AMG Romania TV</div>
-    <button class="menu-toggle" aria-label="Deschide meniul">☰</button>
-    <ul class="nav-links">
-      <li><a href="#">Acasă</a></li>
-      <li><a href="#canale">Canale</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <section class="hero">
+        <div class="hero-content">
+            <h2>România ta, oriunde te-ai afla.</h2>
+            <p>Platforma TV online Nr. 1 pentru românii din Diaspora. Știri, cultură și emisiuni utile, 24/7.</p>
+            <div class="video-placeholder">[PLAYER LIVE TV AICI]</div>
+            <button class="main-cta">Începe Vizionarea</button>
+        </div>
+    </section>
 
-  <!-- Banner principal -->
-  <header class="hero-banner">
-    <div class="overlay">
-      <h1>🇷🇴 AMG ROMANIA TV</h1>
-      <p>Televiziunea românească pentru diaspora</p>
-      <p class="subtext">Conexiunea Ta cu Casa</p>
-      <a href="#canale" class="btn">Vezi Canale</a>
-    </div>
-  </header>
+    <section class="packages">
+        <h3>Alege pachetul potrivit</h3>
+        </section>
 
-  <!-- Secțiune canale -->
-  <section id="canale">
-    <h2>📺 Alege Canalul Preferat</h2>
-    <div class="grid-canale" id="canale-container">
-      <!-- Canale vor fi generate din tv-links.json -->
-    </div>
-  </section>
+    <footer>
+        <p>&copy; 2025 AMG ROMANIA TV. Toate drepturile rezervate.</p>
+        <div class="footer-links">
+            <a href="#">FAQ</a>
+            <a href="#">Contact</a>
+            <a href="#">Termeni & Condiții</a>
+        </div>
+    </footer>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Scrie-ne pe Telegram: <strong>@AMGRomaniaTV</strong></p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>AMG Romania TV funcționează ca agregator de linkuri publice către surse oficiale. Nu redistribuie conținut, nu găzduiește streamuri și respectă toate drepturile de autor.</p>
-  </footer>
-
-  <!-- Scripturi -->
-  <script src="script.js"></script>
-  <script>
-    const toggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    toggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-  </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
-
