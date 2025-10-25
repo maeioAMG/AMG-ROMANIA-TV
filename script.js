@@ -1,13 +1,15 @@
 window.onload = function() {
-    const menuToggle = document.getElementById('menu-toggle-btn');
-    const mainNav = document.getElementById('main-nav');
-    const livePlayer = document.getElementById('live-player');
-    const channelsList = document.getElementById('channels-list');
-    let activeChannelButton = null; // Variabilă pentru a urmări butonul activ
+    // 1. SELECTORUL CORECTAT
+    // Noul ID din index.html este 'canale-container', nu 'channels-list'
+    const canaleContainer = document.getElementById('canale-container'); 
+    
+    // Logica meniului hamburger a fost mutată direct în HTML, deci o putem ignora aici.
+    
+    // VARIABILA GLOBALĂ PENTRU CANALUL ACTIV (nu mai este necesară aici, dar o păstrăm pentru dezvoltări viitoare)
+    // let activeChannelButton = null;
 
-    // LISTA ACTUALIZATĂ A CANALELOR (34 de canale)
+    // LISTA COMPLETĂ ȘI ACTUALIZATĂ A CANALELOR (34 de canale)
     const tvChannels = [
-        // ATENȚIE: Aceste 'link'-uri vor funcționa doar dacă sursa permite încorporarea (iframe).
         { "nume": "Digi 24", "link": "https://www.digi24.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Digi24_logo_2022.svg", "categorie": "Știri" },
         { "nume": "Antena 1", "link": "https://www.antena1.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Antena_1_logo_2022.svg", "categorie": "General" },
         { "nume": "PRO TV", "link": "https://www.protv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Pro_TV_logo_2022.svg", "categorie": "General" },
@@ -43,64 +45,37 @@ window.onload = function() {
         { "nume": "Trinitas TV", "link": "https://www.trinitas.tv/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Trinitas_TV_logo.svg", "categorie": "Religie" } 
     ];
 
-    // 1. Logica Meniului Hamburger (Mobil)
-    if (menuToggle && mainNav) {
-        menuToggle.addEventListener('click', function() {
-            mainNav.classList.toggle('active');
-            menuToggle.innerHTML = mainNav.classList.contains('active') ? '&times;' : '&#9776;';
-        });
-    }
-
-    // Funcția care încarcă canalul în player și marchează butonul activ
-    function loadChannel(channelName, channelUrl, buttonElement) {
-        
-        // 1. Actualizează Playerul cu IFRAME
-        livePlayer.innerHTML = `
-            <div class="player-content-wrapper" style="width: 100%; height: 100%;">
-                <iframe src="${channelUrl}" 
-                        style="border:none; width:100%; height:100%;" 
-                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" 
-                        allowfullscreen="true">
-                </iframe>
-                
-                <div style="position: absolute; top: 10px; left: 10px; color: white; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 3px; font-size: 0.8em; z-index: 5;">
-                    VIZIONARE: ${channelName.toUpperCase()}
-                </div>
-            </div>
-        `;
-
-        // 2. Marchează butonul nou ca fiind activ
-        if (activeChannelButton) {
-            activeChannelButton.classList.remove('active'); // Demarchează butonul vechi
-        }
-        if (buttonElement) {
-            buttonElement.classList.add('active'); // Marchează butonul nou
-            activeChannelButton = buttonElement;
-        }
-    }
     
-    // 3. Logica Grila TV
-    if (channelsList && livePlayer) {
+    // Funcția principală de afișare/filtrare a grilei (simplificată pentru a folosi noul design)
+    function displayChannels(channels) {
+        if (!canaleContainer) return; // Ieșire rapidă dacă elementul nu este găsit
+
+        canaleContainer.innerHTML = ''; // Golește containerul
         
-        // Generarea butoanelor pentru canale
-        channelsList.innerHTML = ''; 
-        tvChannels.forEach(channel => {
-            const button = document.createElement('button');
-            button.className = 'channel-button';
+        channels.forEach(channel => {
+            const button = document.createElement('a');
+            // Folosim clasa CSS '.canal' de la tine și adăugăm 'canal-link' pentru a putea folosi :hover
+            button.className = 'canal canal-link'; 
             
-            // Folosim channel.sigla și channel.nume
+            // Setăm link-ul ca URL extern (pentru a deschide stream-ul într-o fereastră nouă/Player)
+            // NOTĂ: Dacă dorești să încarci stream-ul într-un player pe pagină, ar trebui să folosim un 'button'
+            // și să implementăm funcția loadChannel din conversațiile anterioare.
+            
+            // Momentan, folosim A (link) pentru a merge la sursa directă
+            button.href = channel.link; 
+            button.target = "_blank"; // Deschide în fereastră nouă
+            
+            // Structura HTML pentru noul design
             button.innerHTML = `<img src="${channel.sigla}" alt="${channel.nume} Logo"><span>${channel.nume}</span>`;
             
-            // Atribuie funcția la click (folosim channel.nume și channel.link)
-            button.onclick = () => loadChannel(channel.nume, channel.link, button);
-            channelsList.appendChild(button);
+            canaleContainer.appendChild(button);
         });
-        
-        // Încarcă canalul implicit la pornire și marchează primul buton
-        const firstButton = channelsList.querySelector('.channel-button');
-        if(firstButton) {
-            // Transmite numele și link-ul primului canal (Digi 24)
-            loadChannel(tvChannels[0].nume, tvChannels[0].link, firstButton);
-        }
     }
+
+    // 2. FILTRAREA CANALELOR (Nouă funcționalitate pe care o vom adăuga)
+    
+    // ...
+
+    // Afișează toate canalele la pornire
+    displayChannels(tvChannels);
 };
