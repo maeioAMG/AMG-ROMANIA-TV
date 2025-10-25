@@ -101,23 +101,25 @@ section {
   text-align: center;
 }
 
-/* --- LIVE PLAYER (FINALIZAT) --- */
+/* --- LIVE PLAYER (CORECTAT ȘI FINALIZAT) --- */
 .live-player-section {
-    padding: 100px 20px 40px; 
+    padding: 100px 20px 40px; 
     background-color: #000;
     text-align: center;
 }
 
 .video-placeholder {
-    position: relative; 
-    width: 95%; /* MĂRIT la 95% */
-    max-width: 1300px; /* CREȘTEM LĂȚIMEA MAXIMĂ la 1300px pentru vizibilitate crescută */
+    position: relative; 
+    width: 95%; 
+    max-width: 1300px; 
+    /* Păstrează raportul 16:9, iar min-height asigură că nu este o bandă subțire */
     padding-bottom: 56.25%; /* Raport 16:9 */
-    height: 0; 
+    min-height: 400px; /* NOU: FORȚEAZĂ O ÎNĂLȚIME MINIMĂ VIZIBILĂ */
+    height: 0; 
     margin: 0 auto;
     background-color: #111;
     border-radius: 8px;
-    overflow: hidden; 
+    overflow: hidden; 
     box-shadow: 0 0 15px rgba(240, 192, 64, 0.3);
 }
 
@@ -140,7 +142,7 @@ section {
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 16px;
   padding: 10px;
-  max-width: 1200px; 
+  max-width: 1200px; 
   margin: 0 auto;
 }
 
@@ -148,20 +150,20 @@ section {
   background-color: #111;
   border-radius: 8px;
   padding: 10px;
-  border: 3px solid transparent; 
+  border: 3px solid transparent; 
   transition: transform 0.3s ease, border-color 0.3s ease;
-  cursor: pointer; 
+  cursor: pointer; 
 }
 
 .canal:hover {
   transform: scale(1.05);
-  border-color: rgba(240, 192, 64, 0.5); 
+  border-color: rgba(240, 192, 64, 0.5); 
 }
 
 /* STIL CANAL ACTIV */
 .canal.active {
-    border: 3px solid #f0c040; 
-    background-color: #222; 
+    border: 3px solid #f0c040; 
+    background-color: #222; 
     box-shadow: 0 0 10px rgba(240, 192, 64, 0.7);
 }
 
@@ -204,7 +206,7 @@ section {
 /* --- RESPONSIVITATE --- */
 @media screen and (max-width: 768px) {
     .live-player-section {
-        padding-top: 80px; 
+        padding-top: 80px; 
     }
 
     .hero-banner h1 {
