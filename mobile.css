@@ -91,4 +91,9 @@
         display: block;
         margin: 5px 0;
     }
+    
+    /* Stiluri ajustate pentru pagina de plată pe mobil */
+    .payment-details {
+        padding: 20px;
+    }
 }
