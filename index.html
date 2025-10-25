@@ -13,7 +13,6 @@
 </head>
 <body>
 
-  <!-- Meniu fix sus -->
   <nav class="navbar">
     <div class="logo">📡 AMG Romania TV</div>
     <button class="menu-toggle" aria-label="Deschide meniul">☰</button>
@@ -24,36 +23,29 @@
     </ul>
   </nav>
 
-  <!-- Banner principal -->
   <header class="hero-banner">
     <div class="overlay">
       <h1>🇷🇴 AMG ROMANIA TV</h1>
       <p>Televiziunea românească pentru diaspora</p>
-      <p class="subtext">Conexiunea Ta cu Casa</p>
+      <p class="subtext">Acum cu peste 50 de canale disponibile</p>
       <a href="#canale" class="btn">Vezi Canale</a>
     </div>
   </header>
 
-  <!-- Secțiune canale -->
   <section id="canale">
     <h2>📺 Alege Canalul Preferat</h2>
-    <div class="grid-canale" id="canale-container">
-      <!-- Canale vor fi generate din tv-links.json -->
-    </div>
+    <div class="grid-canale" id="canale-container"></div>
   </section>
 
-  <!-- Contact -->
   <section id="contact">
     <h2>Contact</h2>
     <p>Scrie-ne pe Telegram: <strong>@AMGRomaniaTV</strong></p>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>AMG Romania TV funcționează ca agregator de linkuri publice către surse oficiale. Nu redistribuie conținut, nu găzduiește streamuri și respectă toate drepturile de autor.</p>
   </footer>
 
-  <!-- Scripturi -->
   <script src="script.js"></script>
   <script>
     const toggle = document.querySelector('.menu-toggle');
@@ -62,6 +54,6 @@
       navLinks.classList.toggle('active');
     });
   </script>
-
 </body>
 </html>
+
