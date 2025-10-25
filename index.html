@@ -4,46 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMG ROMANIA TV: Conexiunea Ta cu Casa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
     
     <header>
         <div class="logo">
-            <img src="images/logo_amgtv.png" alt="AMG Romania TV Logo">
+            <img src="AMG%20TV%20ROMANIA%20TV.jpg" alt="AMG Romania TV Logo" class="logo-img"> 
             <h1>AMG ROMANIA TV</h1>
         </div>
-        <nav>
+        
+        <nav id="main-nav">
             <a href="#">LIVE TV</a>
             <a href="#">PROGRAM TV</a>
             <a href="#">VOD / ARHIVĂ</a>
+            <a href="#">ȘTIRI & DIASPORA</a>
         </nav>
+        
         <div class="actions">
             <button class="cta-button">ABONEAZĂ-TE ACUM</button>
-        </div>
+            <div class="menu-toggle" id="menu-toggle-btn">&#9776;</div> </div>
     </header>
 
     <section class="hero">
         <div class="hero-content">
             <h2>România ta, oriunde te-ai afla.</h2>
             <p>Platforma TV online Nr. 1 pentru românii din Diaspora. Știri, cultură și emisiuni utile, 24/7.</p>
-            <div class="video-placeholder">[PLAYER LIVE TV AICI]</div>
+            
+            <div class="video-placeholder" id="live-player">
+                [Player Cloudflare Stream va fi integrat aici cu JS]
+            </div>
+
             <button class="main-cta">Începe Vizionarea</button>
         </div>
     </section>
 
     <section class="packages">
         <h3>Alege pachetul potrivit</h3>
-        </section>
+        <div class="packages-container">
+            <div class="package-card standard">
+                <h4>STANDARD ACASĂ</h4>
+                <p class="price">$6.99 / lună</p>
+                <ul>
+                    <li>LIVE TV 24/7</li>
+                    <li>Arhivă 7 Zile</li>
+                    <li>Vizionare HD</li>
+                </ul>
+                <button class="secondary-cta">ALEGE</button>
+            </div>
+            <div class="package-card premium">
+                <h4>PREMIUM DIASPORA</h4>
+                <p class="price">$10.99 / lună</p>
+                <ul>
+                    <li>Arhivă 30 Zile</li>
+                    <li>Calitate 4K/UHD</li>
+                    <li>4 Dispozitive Simultane</li>
+                    <li>Conținut Exclusiv</li>
+                </ul>
+                <button class="main-cta">CEL MAI ALES</button>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2025 AMG ROMANIA TV. Toate drepturile rezervate.</p>
-        <div class="footer-links">
-            <a href="#">FAQ</a>
-            <a href="#">Contact</a>
-            <a href="#">Termeni & Condiții</a>
-        </div>
+        <p>&copy; 2025 AMG ROMANIA TV. Toate drepturile rezervate. | <a href="#">FAQ</a> | <a href="#">Termeni & Condiții</a></p>
     </footer>
 
     <script src="script.js"></script>
