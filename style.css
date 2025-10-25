@@ -1,271 +1,213 @@
-/* ==================================== */
-/* 1. VARIABILE ȘI RESETARI DE BAZĂ */
-/* ==================================== */
-
-:root {
-    --color-primary: #121212; /* Fundal Principal */
-    --color-secondary: #00c6ff; /* Albastru strălucitor (Accentuare/Secundar) */
-    --color-cta: #ff6f00; /* Portocaliu/Roșu pentru CTA */
-    --color-text-light: #f0f0f0;
-    --color-text-dark: #333;
+/* Reset și font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--color-primary);
-    color: var(--color-text-light);
-    line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
+  background-color: #000;
+  color: #fff;
 }
 
-h1, h2, h3, h4 {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--color-text-light);
-    margin-bottom: 0.5em;
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
-section {
-    padding: 60px 5%;
+.navbar .logo {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #f0c040;
 }
 
-/* ==================================== */
-/* 2. HEADER ȘI NAVIGAȚIE (Design Îmbunătățit) */
-/* ==================================== */
-
-header {
-    background-color: #0d0d0d; /* Fundal mai închis */
-    padding: 10px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid var(--color-cta); /* Linie CTA subtilă */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
+.navbar .nav-links li a {
+  color: #f0c040;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.logo-img {
-    height: 45px; /* Mărime logo mai vizibilă */
-    margin-right: 15px;
-}
-
-header h1 {
-    font-size: 1.4em;
-    color: var(--color-text-light);
-    font-weight: 700;
-}
-
-/* Navigația Principală */
-#main-nav a {
-    color: #ccc;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
-    padding: 5px 0;
-    position: relative;
-    transition: color 0.3s;
-}
-
-#main-nav a:hover {
-    color: var(--color-secondary);
-}
-
-/* Efect de subliniere (underline) la Hover */
-#main-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--color-cta);
-    transition: width 0.3s ease-out;
-}
-
-#main-nav a:hover::after {
-    width: 100%;
-}
-
-/* Linkul de 'Contact' din actions */
-.actions .header-link {
-    color: var(--color-text-light);
-    text-decoration: none;
-    padding: 8px 15px;
-    border: 1px solid #555;
-    border-radius: 5px;
-    margin-left: 15px;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.actions .header-link:hover {
-    background-color: #333;
-    border-color: var(--color-secondary);
+.navbar .nav-links li a:hover {
+  text-decoration: underline;
 }
 
 .menu-toggle {
-    display: none; /* Ascuns pe desktop */
-    font-size: 1.5em;
-    cursor: pointer;
-    margin-left: 15px;
+  display: none;
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
-/* ==================================== */
-/* 3. SECȚIUNEA EROU (PLAYER) */
-/* ==================================== */
-
-.hero {
-    text-align: center;
-    padding: 40px 5%;
+/* Banner principal */
+.hero-banner {
+  background-image: url('amg-bg.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.hero-content h2 {
-    font-size: 2.5em;
-    color: var(--color-secondary);
-    margin-bottom: 10px;
+.hero-banner .overlay {
+  background-color: rgba(0,0,0,0.6);
+  padding: 40px;
+  border-radius: 12px;
 }
 
-.hero-content p {
-    color: #bbb;
-    font-size: 1.1em;
-    margin-bottom: 20px;
+.hero-banner h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #fff;
 }
 
-/* Containerul Video Player (Bază) */
-.video-placeholder {
-    width: 100%;
-    max-width: 900px;
-    height: 500px;
-    background-color: #000000;
-    border: 3px solid var(--color-secondary); /* Ramă mai groasă și vizibilă */
-    margin: 30px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden; /* Important pentru iframe */
-    box-shadow: 0 0 20px rgba(0, 198, 255, 0.2);
+.hero-banner p {
+  font-size: 1.4em;
+  color: #f0c040;
+  margin-bottom: 10px;
 }
 
-/* ==================================== */
-/* 4. GRILA TV (Mini-Galerie de Logo-uri) */
-/* ==================================== */
-
-.tv-grid {
-    padding: 30px 5%;
-    background-color: #1a1a1a; /* Ușor mai deschis decât fundalul principal */
-    border-top: 1px solid #333;
-    border-bottom: 1px solid #333;
-    text-align: center;
+.hero-banner .subtext {
+  font-size: 1.1em;
+  color: #ccc;
+  margin-bottom: 20px;
 }
 
-.tv-grid h3 {
-    color: var(--color-secondary);
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #f0c040;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
 }
 
-.channels-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 30px;
-    padding: 10px 0;
+.btn:hover {
+  background-color: #ffd700;
 }
 
-.channel-button {
-    /* Dimensiunea și aspectul plăcii */
-    width: 100px;
-    height: 90px;
-    background-color: #000;
-    border: 2px solid #333;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.2s ease-in-out;
+/* Secțiuni */
+section {
+  padding: 80px 20px;
+  text-align: center;
 }
 
-/* Efect de Hover (Evidențiere) */
-.channel-button:hover {
-    transform: scale(1.05);
-    background-color: #111;
-    border-color: var(--color-cta); /* Contur CTA */
-    box-shadow: 0 0 15px rgba(255, 111, 0, 0.4);
+#canale {
+  scroll-margin-top: 80px;
 }
 
-/* Imaginea Logo-ului */
-.channel-button img {
-    max-width: 60%;
-    max-height: 50%;
-    height: auto;
-    object-fit: contain;
-    margin-bottom: 5px;
-    transition: opacity 0.2s;
+section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #00ffff;
 }
 
-/* Numele Canalului (Afișat la hover) */
-.channel-button span {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 3px 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: var(--color-text-light);
-    font-size: 0.7em;
-    font-weight: 700;
-    text-align: center;
-    opacity: 0; /* Ascuns implicit */
-    transition: opacity 0.2s;
-    pointer-events: none;
+/* Grilă canale */
+.grid-canale {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
-/* Arată numele canalului la hover */
-.channel-button:hover span {
-    opacity: 1;
+.canal {
+  background-color: #111;
+  border-radius: 8px;
+  padding: 10px;
+  transition: transform 0.3s ease;
 }
 
-/* Stil pentru Butonul de Grilă Activ (Cel selectat) */
-.channel-button.active {
-    border-color: var(--color-secondary);
-    box-shadow: 0 0 10px rgba(0, 198, 255, 0.6);
-    background-color: #0d0d0d;
+.canal:hover {
+  transform: scale(1.05);
 }
 
-/* ==================================== */
-/* 5. FOOTER */
-/* ==================================== */
+.canal img {
+  max-width: 100%;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
 
+.canal span {
+  display: block;
+  font-weight: bold;
+  color: #f0c040;
+}
+
+/* Contact */
+#contact {
+  font-size: 1.1em;
+}
+
+/* Footer */
 footer {
-    background-color: #0d0d0d;
-    text-align: center;
-    padding: 20px 5%;
-    border-top: 1px solid #333;
+  background-color: #111;
+  color: #ccc;
+  font-size: 0.9em;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #111;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hero-banner h1 {
+    font-size: 2em;
+  }
+
+  .hero-banner p {
+    font-size: 1em;
+  }
+
+  .btn {
     font-size: 0.9em;
-    color: #999;
-}
+    padding: 10px 18px;
+  }
 
-footer a {
-    color: var(--color-secondary);
-    text-decoration: none;
-    margin: 0 5px;
-}
-
-footer a:hover {
-    text-decoration: underline;
+  section h2 {
+    font-size: 1.6em;
+  }
 }
