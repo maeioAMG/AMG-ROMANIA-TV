@@ -1,76 +1,93 @@
-/* Stiluri adăugate pentru Playerul cu Trial */
+/* --- Îmbunătățiri pentru Pachetul de Abonamente --- */
 
-.player-content-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.video-stream-area {
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-}
-
-.demo-display {
-    width: 100%;
-    height: 100%;
+/* Stil general pentru carduri */
+.packages-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    color: var(--color-text-light);
-    background: linear-gradient(45deg, #111 0%, #333 100%);
-    overflow: hidden;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
 }
 
-/* Simulare de mișcare (pentru a nu arăta static) */
-.simulated-motion {
+.package-card {
+    background: #1c1c1c; /* Fundal mai închis pentru contrast */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     width: 100%;
-    height: 50%;
-    position: absolute;
-    bottom: 0;
-    opacity: 0.1;
-    background: repeating-linear-gradient(
-        -45deg,
-        var(--color-secondary),
-        var(--color-secondary) 10px,
-        transparent 10px,
-        transparent 20px
-    );
-    animation: moveStripes 60s linear infinite;
-}
-
-@keyframes moveStripes {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 1000px 1000px;
-    }
-}
-
-
-/* Overlay CTA (Mesajul de Trial) */
-.trial-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px;
-    background-color: rgba(0, 0, 0, 0.85); /* Fundal semi-transparent */
-    color: var(--color-text-light);
+    max-width: 350px;
     text-align: center;
-    border-top: 2px solid var(--color-cta);
-    z-index: 10;
+    border: 1px solid #333; /* Contur subtil */
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.trial-overlay p {
+.package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.package-card h4 {
+    font-size: 1.5em;
+    color: var(--color-cta); /* Folosim culoarea CTA pentru titlu */
     margin-bottom: 10px;
-    font-size: 0.9em;
-    color: #ccc;
+    letter-spacing: 1px;
 }
 
-.trial-cta {
-    padding: 8px 20px;
+.package-card .price {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 25px;
+}
+
+.package-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.package-card ul li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #3a3a3a;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+}
+
+.package-card ul li:last-child {
+    border-bottom: none;
+}
+
+/* Iconiță de bifă (simulată) */
+.package-card ul li:before {
+    content: "✔️"; 
+    color: var(--color-secondary);
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+/* Stil specific pentru pachetul PREMIUM (Cel mai ales) */
+.package-card.premium {
+    background: linear-gradient(135deg, #111 0%, #303030 100%);
+    border: 3px solid var(--color-cta); /* Rama vizibilă */
+    padding: 35px; /* Puțin mai mare */
+    position: relative;
+}
+
+/* Eticheta "CEL MAI ALES" */
+.package-card.premium::before {
+    content: "RECOMANDAT";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-cta);
+    color: #111;
+    font-weight: 700;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
