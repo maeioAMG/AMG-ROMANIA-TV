@@ -1,8 +1,10 @@
+/* Definițiile Culorilor și Fonturilor */
 :root {
     --color-primary: #031737;       /* Albastru Noapte (Background) */
     --color-secondary: #00D2FF;     /* Albastru Electric (Accent) */
     --color-cta: #FFC900;           /* Auriu/Galben Viu (CTA) */
     --color-text-light: #FFFFFF;    /* Alb Pur */
+    --font-heading: 'Montserrat', sans-serif;
     --font-primary: 'Roboto', sans-serif;
 }
 
@@ -19,66 +21,144 @@ body {
     line-height: 1.6;
 }
 
-/* Stiluri Header */
+/* Stiluri Header (Desktop) */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
-    background-color: rgba(0, 0, 0, 0.4); /* Ușor transparent */
+    background-color: rgba(0, 0, 0, 0.5); 
     border-bottom: 2px solid var(--color-secondary);
 }
 
-header h1 {
-    font-size: 1.5em;
-    margin-left: 10px;
+.logo {
+    display: flex;
+    align-items: center;
 }
 
-header a {
+.logo-img {
+    height: 40px; /* Ajustați după dimensiunea reală a logo-ului */
+    margin-right: 10px;
+}
+
+header h1 {
+    font-family: var(--font-heading);
+    font-size: 1.5em;
+}
+
+header nav a {
     color: var(--color-text-light);
     text-decoration: none;
     margin-left: 25px;
     font-weight: 500;
+    transition: color 0.3s;
 }
 
-/* Buton CTA principal */
-.cta-button {
+header nav a:hover {
+    color: var(--color-secondary);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+}
+
+/* Butonul Hamburger (Ascuns pe Desktop) */
+.menu-toggle {
+    display: none;
+}
+
+/* Butoane CTA */
+.cta-button, .main-cta, .secondary-cta {
     background-color: var(--color-cta);
     color: var(--color-primary);
     border: none;
-    padding: 10px 20px;
+    padding: 12px 25px;
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
+    text-transform: uppercase;
     transition: background-color 0.3s;
 }
 
-.cta-button:hover {
+.cta-button:hover, .main-cta:hover {
     background-color: #FFEA00;
 }
 
-/* Secțiunea Erou (Simulare spațiu principal) */
+/* Secțiunea Erou (Banner Principal) */
 .hero {
-    min-height: 70vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height: 80vh;
+    padding: 50px 5%;
     text-align: center;
-    /* Imaginea de fundal ar veni aici */
-    padding: 50px 20px;
+}
+
+.hero-content h2 {
+    font-family: var(--font-heading);
+    font-size: 3em;
+    margin-bottom: 10px;
 }
 
 .video-placeholder {
-    width: 80%;
+    width: 100%;
     max-width: 900px;
-    height: 400px;
+    height: 500px; 
     background-color: #1a1a1a;
     border: 3px solid var(--color-secondary);
     margin: 30px auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2em;
+}
+
+/* Secțiunea de Pachete */
+.packages {
+    padding: 50px 5%;
+    text-align: center;
+}
+
+.packages-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.package-card {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.package-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    color: var(--color-secondary);
+}
+
+.package-card.premium {
+    border: 3px solid var(--color-cta);
+    transform: scale(1.05); /* Iesire in evidenta */
+}
+
+.price {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.package-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.package-card ul li {
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
 /* Footer */
@@ -86,6 +166,11 @@ footer {
     text-align: center;
     padding: 20px;
     background-color: #000000;
-    margin-top: 50px;
     border-top: 1px solid var(--color-secondary);
+}
+
+footer a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    margin: 0 10px;
 }
