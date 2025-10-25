@@ -1,30 +1,177 @@
-/* --- Culori de Bază (Verificați dacă acestea există deja) --- */
+/* ==================================== */
+/* 1. VARIABILE ȘI RESETARI DE BAZĂ */
+/* ==================================== */
+
 :root {
     --color-primary: #121212; /* Fundal Principal */
     --color-secondary: #00c6ff; /* Albastru strălucitor (Accentuare/Secundar) */
-    --color-cta: #ff6f00; /* Portocaliu/Roșu pentru CTA (dacă este cazul) */
+    --color-cta: #ff6f00; /* Portocaliu/Roșu pentru CTA */
     --color-text-light: #f0f0f0;
     --color-text-dark: #333;
 }
 
-/* --- Stilul General al Containerului Video (Fără Trial Overlay) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-text-light);
+    margin-bottom: 0.5em;
+}
+
+section {
+    padding: 60px 5%;
+}
+
+/* ==================================== */
+/* 2. HEADER ȘI NAVIGAȚIE (Design Îmbunătățit) */
+/* ==================================== */
+
+header {
+    background-color: #0d0d0d; /* Fundal mai închis */
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-cta); /* Linie CTA subtilă */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 45px; /* Mărime logo mai vizibilă */
+    margin-right: 15px;
+}
+
+header h1 {
+    font-size: 1.4em;
+    color: var(--color-text-light);
+    font-weight: 700;
+}
+
+/* Navigația Principală */
+#main-nav a {
+    color: #ccc;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+#main-nav a:hover {
+    color: var(--color-secondary);
+}
+
+/* Efect de subliniere (underline) la Hover */
+#main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--color-cta);
+    transition: width 0.3s ease-out;
+}
+
+#main-nav a:hover::after {
+    width: 100%;
+}
+
+/* Linkul de 'Contact' din actions */
+.actions .header-link {
+    color: var(--color-text-light);
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    margin-left: 15px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.actions .header-link:hover {
+    background-color: #333;
+    border-color: var(--color-secondary);
+}
+
+.menu-toggle {
+    display: none; /* Ascuns pe desktop */
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+/* ==================================== */
+/* 3. SECȚIUNEA EROU (PLAYER) */
+/* ==================================== */
+
+.hero {
+    text-align: center;
+    padding: 40px 5%;
+}
+
+.hero-content h2 {
+    font-size: 2.5em;
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    color: #bbb;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+/* Containerul Video Player (Bază) */
 .video-placeholder {
     width: 100%;
     max-width: 900px;
     height: 500px;
     background-color: #000000;
-    border: 1px solid var(--color-secondary);
+    border: 3px solid var(--color-secondary); /* Ramă mai groasă și vizibilă */
     margin: 30px auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; 
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden; /* Important pentru iframe */
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.2);
 }
 
-/* --- Stiluri pentru Grila TV (Pentru un aspect mai curat) --- */
+/* ==================================== */
+/* 4. GRILA TV (Mini-Galerie de Logo-uri) */
+/* ==================================== */
+
 .tv-grid {
     padding: 30px 5%;
-    background-color: var(--color-primary);
+    background-color: #1a1a1a; /* Ușor mai deschis decât fundalul principal */
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    text-align: center;
+}
+
+.tv-grid h3 {
+    color: var(--color-secondary);
 }
 
 .channels-container {
@@ -32,24 +179,93 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
-    margin-top: 20px;
+    margin-top: 30px;
+    padding: 10px 0;
 }
 
 .channel-button {
-    background-color: #2a2a2a;
-    color: var(--color-text-light);
-    border: 1px solid #444;
-    padding: 10px 15px;
+    /* Dimensiunea și aspectul plăcii */
+    width: 100px;
+    height: 90px;
+    background-color: #000;
+    border: 2px solid #333;
     border-radius: 8px;
     cursor: pointer;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    font-size: 0.9em;
-    font-weight: 700;
-    transition: background-color 0.3s, border-color 0.3s;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
 }
 
+/* Efect de Hover (Evidențiere) */
 .channel-button:hover {
-    background-color: #383838;
+    transform: scale(1.05);
+    background-color: #111;
+    border-color: var(--color-cta); /* Contur CTA */
+    box-shadow: 0 0 15px rgba(255, 111, 0, 0.4);
+}
+
+/* Imaginea Logo-ului */
+.channel-button img {
+    max-width: 60%;
+    max-height: 50%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 5px;
+    transition: opacity 0.2s;
+}
+
+/* Numele Canalului (Afișat la hover) */
+.channel-button span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 3px 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: var(--color-text-light);
+    font-size: 0.7em;
+    font-weight: 700;
+    text-align: center;
+    opacity: 0; /* Ascuns implicit */
+    transition: opacity 0.2s;
+    pointer-events: none;
+}
+
+/* Arată numele canalului la hover */
+.channel-button:hover span {
+    opacity: 1;
+}
+
+/* Stil pentru Butonul de Grilă Activ (Cel selectat) */
+.channel-button.active {
     border-color: var(--color-secondary);
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.6);
+    background-color: #0d0d0d;
+}
+
+/* ==================================== */
+/* 5. FOOTER */
+/* ==================================== */
+
+footer {
+    background-color: #0d0d0d;
+    text-align: center;
+    padding: 20px 5%;
+    border-top: 1px solid #333;
+    font-size: 0.9em;
+    color: #999;
+}
+
+footer a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
