@@ -1,93 +1,55 @@
-/* --- Îmbunătățiri pentru Pachetul de Abonamente --- */
+/* --- Culori de Bază (Verificați dacă acestea există deja) --- */
+:root {
+    --color-primary: #121212; /* Fundal Principal */
+    --color-secondary: #00c6ff; /* Albastru strălucitor (Accentuare/Secundar) */
+    --color-cta: #ff6f00; /* Portocaliu/Roșu pentru CTA (dacă este cazul) */
+    --color-text-light: #f0f0f0;
+    --color-text-dark: #333;
+}
 
-/* Stil general pentru carduri */
-.packages-container {
+/* --- Stilul General al Containerului Video (Fără Trial Overlay) --- */
+.video-placeholder {
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    background-color: #000000;
+    border: 1px solid var(--color-secondary);
+    margin: 30px auto;
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
+    align-items: center;
+    position: relative; 
+}
+
+/* --- Stiluri pentru Grila TV (Pentru un aspect mai curat) --- */
+.tv-grid {
+    padding: 30px 5%;
+    background-color: var(--color-primary);
+}
+
+.channels-container {
+    display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
 }
 
-.package-card {
-    background: #1c1c1c; /* Fundal mai închis pentru contrast */
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 350px;
-    text-align: center;
-    border: 1px solid #333; /* Contur subtil */
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.package-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-}
-
-.package-card h4 {
-    font-size: 1.5em;
-    color: var(--color-cta); /* Folosim culoarea CTA pentru titlu */
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-.package-card .price {
-    font-size: 2.2em;
-    font-weight: 700;
-    color: var(--color-secondary);
-    margin-bottom: 25px;
-}
-
-.package-card ul {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-    margin-bottom: 30px;
-}
-
-.package-card ul li {
-    padding: 10px 0;
-    border-bottom: 1px dashed #3a3a3a;
-    color: #ccc;
+.channel-button {
+    background-color: #2a2a2a;
+    color: var(--color-text-light);
+    border: 1px solid #444;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
     display: flex;
     align-items: center;
-}
-
-.package-card ul li:last-child {
-    border-bottom: none;
-}
-
-/* Iconiță de bifă (simulată) */
-.package-card ul li:before {
-    content: "✔️"; 
-    color: var(--color-secondary);
-    margin-right: 10px;
-    font-size: 1.1em;
-}
-
-/* Stil specific pentru pachetul PREMIUM (Cel mai ales) */
-.package-card.premium {
-    background: linear-gradient(135deg, #111 0%, #303030 100%);
-    border: 3px solid var(--color-cta); /* Rama vizibilă */
-    padding: 35px; /* Puțin mai mare */
-    position: relative;
-}
-
-/* Eticheta "CEL MAI ALES" */
-.package-card.premium::before {
-    content: "RECOMANDAT";
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--color-cta);
-    color: #111;
+    font-size: 0.9em;
     font-weight: 700;
-    padding: 5px 15px;
-    border-radius: 5px;
-    font-size: 0.8em;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.channel-button:hover {
+    background-color: #383838;
+    border-color: var(--color-secondary);
 }
