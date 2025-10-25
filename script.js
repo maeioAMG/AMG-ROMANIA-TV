@@ -21,13 +21,13 @@ window.onload = function() {
         });
     }
 
-    // 2. Logica Butoanelor CTA (Abonare) - Nemodificată (trimit la abonamente.html)
+    // 2. Logica Butoanelor CTA (Abonare din Header/Pachete) - Nemodificată
     if (ctaButtons.length > 0) {
         ctaButtons.forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault(); 
                 
-                let pachet = 'premium'; // Setăm Premium ca opțiune implicită pentru CTA-uri principale
+                let pachet = 'premium'; 
                 if (button.closest('.package-card.standard') || button.textContent.trim() === 'ALEGE') {
                     pachet = 'standard'; 
                 }
@@ -41,9 +41,8 @@ window.onload = function() {
     if (channelsList && livePlayer) {
         
         function loadChannel(channelName, channelId) {
-            // Playerul real Cloudflare va merge aici.
-            // Acum simulăm un overlay de tip "demo/trial"
             
+            // 1. Inserăm structura HTML a playerului (Simulare + Overlay)
             livePlayer.innerHTML = `
                 <div class="player-content-wrapper">
                     <div class="video-stream-area">
@@ -61,15 +60,19 @@ window.onload = function() {
                 </div>
             `;
             
-            // Re-atașăm listener-ul la butonul din playerul simulat
-            document.querySelector('.trial-cta').addEventListener('click', function(e) {
-                 e.preventDefault(); 
-                 window.location.href = `abonamente.html?pachet=premium`; 
-            });
+            // 2. ATENȚIE: Re-atașăm listener-ul la noul buton creat, imediat după ce a fost inserat în DOM
+            const trialCtaButton = document.querySelector('.trial-cta');
+            if (trialCtaButton) {
+                 trialCtaButton.addEventListener('click', function(e) {
+                     e.preventDefault(); 
+                     // Acest buton trimite întotdeauna la pachetul premium ca stimulent
+                     window.location.href = `abonamente.html?pachet=premium`; 
+                 });
+            }
         }
         
         // Generarea butoanelor pentru canale
-        channelsList.innerHTML = ''; // Curățăm lista existentă, doar pentru siguranță
+        channelsList.innerHTML = ''; 
         tvChannels.forEach(channel => {
             const button = document.createElement('button');
             button.className = 'channel-button';
