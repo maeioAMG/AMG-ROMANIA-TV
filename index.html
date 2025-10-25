@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMG ROMANIA TV: Conexiunea Ta cu Casa</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
@@ -26,7 +27,8 @@
         
         <div class="actions">
             <button class="cta-button">ABONEAZĂ-TE ACUM</button>
-            <div class="menu-toggle" id="menu-toggle-btn">&#9776;</div> </div>
+            <div class="menu-toggle" id="menu-toggle-btn">&#9776;</div> 
+        </div>
     </header>
 
     <section class="hero">
@@ -73,6 +75,46 @@
         <p>&copy; 2025 AMG ROMANIA TV. Toate drepturile rezervate. | <a href="#">FAQ</a> | <a href="#">Termeni & Condiții</a></p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle-btn');
+            const mainNav = document.getElementById('main-nav');
+            const livePlayer = document.getElementById('live-player');
+            const ctaButtons = document.querySelectorAll('.cta-button, .main-cta, .secondary-cta');
+
+            // 1. Logica Meniului Hamburger (Mobil)
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                    // Schimbă iconița din Hamburger în X și invers
+                    menuToggle.innerHTML = mainNav.classList.contains('active') ? '&times;' : '&#9776;';
+                    console.log('Meniul mobil a fost comutat. Stare: ' + (mainNav.classList.contains('active') ? 'Deschis' : 'Închis'));
+                });
+            }
+
+            // 2. Logica Butoanelor CTA (Abonare)
+            if (ctaButtons.length > 0) {
+                ctaButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault(); 
+                        
+                        // Redirecționarea reală va veni aici
+                        // window.location.href = '/abonamente.html'; 
+                        
+                        // Mesaj de test (Verificați Consola browser-ului - F12)
+                        console.log(`Butonul de abonare '${button.textContent.trim()}' a fost apăsat. Redirecționare spre plată simulată.`);
+                    });
+                });
+            }
+
+            // 3. Simularea Playerului Cloudflare
+            if (livePlayer) {
+                livePlayer.innerHTML = `<div style="padding: 20px; text-align: center;">
+                    <p style="color: var(--color-secondary);">Integrare Player Video Securizat</p>
+                    <p>Codul real Cloudflare Stream Player va fi plasat aici, după configurarea CDN-ului.</p>
+                </div>`;
+            }
+        });
+    </script>
 </body>
 </html>
