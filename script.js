@@ -1,54 +1,84 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Selectarea elementelor prin ID (pentru unicitate) și Class (pentru grupuri)
+window.onload = function() {
     const menuToggle = document.getElementById('menu-toggle-btn');
     const mainNav = document.getElementById('main-nav');
-    const ctaButtons = document.querySelectorAll('.cta-button, .main-cta, .secondary-cta');
+    const livePlayer = document.getElementById('live-player');
+    const ctaButtons = document.querySelectorAll('button.cta-button, button.main-cta, button.secondary-cta');
+    const channelsList = document.getElementById('channels-list');
 
-    // ===================================
-    // 1. Logica Meniului Hamburger (Mobil)
-    // ===================================
+    // Date simulate pentru Grila TV 
+    const tvChannels = [
+        { name: "AMG LIVE", id: "amglive", category: "General", image: "AMG%20TV%20ROMANIA%20TV.jpg" },
+        { name: "PRO TV (Demo)", id: "protv", category: "Divertisment", image: "AMG%20TV%20ROMANIA%20TV.jpg" },
+        { name: "SPORT 1 (Demo)", id: "sport1", category: "Sport", image: "AMG%20TV%20ROMANIA%20TV.jpg" },
+        { name: "ȘTIRI (Demo)", id: "stiri", category: "Știri", image: "AMG%20TV%20ROMANIA%20TV.jpg" }
+    ];
+
+    // 1. Logica Meniului Hamburger (Mobil) - Nemodificată
     if (menuToggle && mainNav) {
         menuToggle.addEventListener('click', function() {
-            // Adaugă/Elimină clasa 'active' pentru a afișa/ascunde meniul mobil (vezi mobile.css)
             mainNav.classList.toggle('active');
-            
-            // Opțional: Schimbă iconița din Hamburger în X
             menuToggle.innerHTML = mainNav.classList.contains('active') ? '&times;' : '&#9776;';
-            
-            console.log('Meniul mobil a fost comutat.');
         });
     }
 
-    // ===================================
-    // 2. Logica Butoanelor CTA (Abonare)
-    // ===================================
+    // 2. Logica Butoanelor CTA (Abonare) - Nemodificată (trimit la abonamente.html)
     if (ctaButtons.length > 0) {
         ctaButtons.forEach(button => {
             button.addEventListener('click', function(e) {
-                // Previne comportamentul implicit (ex: trimiterea unui formular, dacă butonul e într-un <form>)
                 e.preventDefault(); 
                 
-                // --- ACȚIUNE REALĂ AICI ---
-                // Redirecționare către pagina de Abonament (de exemplu: abonamente.html)
-                // Înlocuiți linia de mai jos cu calea corectă către pagina de abonament:
-                // window.location.href = '/abonamente.html'; 
+                let pachet = 'premium'; // Setăm Premium ca opțiune implicită pentru CTA-uri principale
+                if (button.closest('.package-card.standard') || button.textContent.trim() === 'ALEGE') {
+                    pachet = 'standard'; 
+                }
                 
-                // Mesaj de test (poate fi văzut în consola browser-ului)
-                console.log(`Butonul '${button.textContent}' a fost apăsat. Redirecționare spre plată.`);
-                
+                window.location.href = `abonamente.html?pachet=${pachet}`; 
             });
         });
     }
 
-    // ===================================
-    // 3. Simularea Playerului Cloudflare
-    // ===================================
-    // Această secțiune este un placeholder. Codul real va fi mai complex.
-    const livePlayer = document.getElementById('live-player');
-    if (livePlayer) {
-        // În loc de simulare, aici ar trebui să inițializați playerul Cloudflare Stream
-        // Exemplu (de înlocuit cu codul dvs. real):
-        // const streamUrl = 'https://customer-ID.cloudflarest.../manifest.m3u8';
-        // player.src = streamUrl; 
+    // 3. Logica Grila TV și Player (Demo)
+    if (channelsList && livePlayer) {
+        
+        function loadChannel(channelName, channelId) {
+            // Playerul real Cloudflare va merge aici.
+            // Acum simulăm un overlay de tip "demo/trial"
+            
+            livePlayer.innerHTML = `
+                <div class="player-content-wrapper">
+                    <div class="video-stream-area">
+                        <div class="demo-display">
+                            <h3>VIZIONARE GRATUITĂ: ${channelName.toUpperCase()}</h3>
+                            <p>Simulare de Redare Video Securizată</p>
+                            <div class="simulated-motion"></div> 
+                        </div>
+                    </div>
+                    
+                    <div class="trial-overlay">
+                        <p>Vizionează 5 minute gratuit (Trial). Calitatea poate fi limitată.</p>
+                        <button class="main-cta trial-cta">DEBLOCARE COMPLETĂ (ABONARE)</button>
+                    </div>
+                </div>
+            `;
+            
+            // Re-atașăm listener-ul la butonul din playerul simulat
+            document.querySelector('.trial-cta').addEventListener('click', function(e) {
+                 e.preventDefault(); 
+                 window.location.href = `abonamente.html?pachet=premium`; 
+            });
+        }
+        
+        // Generarea butoanelor pentru canale
+        channelsList.innerHTML = ''; // Curățăm lista existentă, doar pentru siguranță
+        tvChannels.forEach(channel => {
+            const button = document.createElement('button');
+            button.className = 'channel-button';
+            button.innerHTML = `<img src="${channel.image}" alt="${channel.name} Logo" style="height: 30px; margin-right: 10px;">${channel.name}`;
+            button.onclick = () => loadChannel(channel.name, channel.id);
+            channelsList.appendChild(button);
+        });
+        
+        // Încarcă canalul implicit la pornire
+        loadChannel(tvChannels[0].name, tvChannels[0].id);
     }
-});
+};
