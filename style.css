@@ -110,11 +110,11 @@ section {
 
 .video-placeholder {
     position: relative; 
-    width: 95%; 
-    max-width: 1300px; 
+    width: 95%; 
+    max-width: 1300px; 
     /* Păstrează raportul 16:9, iar min-height asigură că nu este o bandă subțire */
     padding-bottom: 56.25%; /* Raport 16:9 */
-    min-height: 400px; /* NOU: FORȚEAZĂ O ÎNĂLȚIME MINIMĂ VIZIBILĂ */
+    min-height: 400px; /* NOU: FORȚEAZĂ O ÎNĂLȚIME MINIMĂ VIZIBILĂ */
     height: 0; 
     margin: 0 auto;
     background-color: #111;
@@ -135,6 +135,18 @@ section {
     color: #f0c040;
     padding: 50px;
 }
+
+/* --- BARA DE FILTRARE (NOU) --- */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 10px;
+    gap: 10px; 
+}
+
 
 /* --- GRILA CANALE --- */
 .grid-canale {
