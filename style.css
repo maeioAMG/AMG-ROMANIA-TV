@@ -101,38 +101,37 @@ section {
   text-align: center;
 }
 
-/* --- LIVE PLAYER (NOU) --- */
+/* --- LIVE PLAYER (FINALIZAT) --- */
 .live-player-section {
-    padding: 100px 20px 40px; /* Padding ajustat pentru a compensa navbar-ul fix */
-    background-color: #000;
-    text-align: center;
+    padding: 100px 20px 40px; 
+    background-color: #000;
+    text-align: center;
 }
 
 .video-placeholder {
-    position: relative; /* Esențial pentru poziționarea informației despre canal */
-    width: 90%;
-    max-width: 1000px;
-    /* Formula 16:9 pentru a menține aspectul video: 56.25% din lățime */
-    padding-bottom: 56.25%; 
-    height: 0; 
-    margin: 0 auto;
-    background-color: #111;
-    border-radius: 8px;
-    overflow: hidden; /* Ascunde conținutul iframe-ului care depășește */
-    box-shadow: 0 0 15px rgba(240, 192, 64, 0.3);
+    position: relative; 
+    width: 95%; /* MĂRIT la 95% */
+    max-width: 1300px; /* CREȘTEM LĂȚIMEA MAXIMĂ la 1300px pentru vizibilitate crescută */
+    padding-bottom: 56.25%; /* Raport 16:9 */
+    height: 0; 
+    margin: 0 auto;
+    background-color: #111;
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: 0 0 15px rgba(240, 192, 64, 0.3);
 }
 
 .video-placeholder iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .video-placeholder p {
-    color: #f0c040;
-    padding: 50px;
+    color: #f0c040;
+    padding: 50px;
 }
 
 /* --- GRILA CANALE --- */
@@ -141,29 +140,29 @@ section {
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 16px;
   padding: 10px;
-  max-width: 1200px; /* Limitează grila pentru a nu fi prea largă */
-  margin: 0 auto;
+  max-width: 1200px; 
+  margin: 0 auto;
 }
 
 .canal {
   background-color: #111;
   border-radius: 8px;
   padding: 10px;
-  border: 3px solid transparent; /* Border transparent pentru a nu schimba dimensiunea */
+  border: 3px solid transparent; 
   transition: transform 0.3s ease, border-color 0.3s ease;
-  cursor: pointer; /* Semnalizează că este un element interactiv */
+  cursor: pointer; 
 }
 
 .canal:hover {
   transform: scale(1.05);
-  border-color: rgba(240, 192, 64, 0.5); /* Bordură subtilă la hover */
+  border-color: rgba(240, 192, 64, 0.5); 
 }
 
-/* STIL NOU: CANALUL ACTIV */
+/* STIL CANAL ACTIV */
 .canal.active {
-    border: 3px solid #f0c040; /* Bordură solidă pentru canalul curent */
-    background-color: #222; 
-    box-shadow: 0 0 10px rgba(240, 192, 64, 0.7);
+    border: 3px solid #f0c040; 
+    background-color: #222; 
+    box-shadow: 0 0 10px rgba(240, 192, 64, 0.7);
 }
 
 .canal img {
@@ -179,7 +178,7 @@ section {
   color: #f0c040;
 }
 
-/* --- BUTOANE FILTRARE (Păstrate pentru pasul următor) --- */
+/* --- BUTOANE FILTRARE --- */
 .filter-btn {
   padding: 8px 16px;
   background-color: #f0c040;
@@ -187,31 +186,31 @@ section {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin: 5px;
-  font-weight: bold;
-  transition: background-color 0.2s;
+  margin: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s;
 }
 
 .filter-btn:hover {
-    background-color: #ffd700;
+    background-color: #ffd700;
 }
 
 .filter-btn.active {
   background-color: #ffd700;
   color: #000;
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
 /* --- RESPONSIVITATE --- */
 @media screen and (max-width: 768px) {
-    .live-player-section {
-        padding-top: 80px; /* Reducem padding-ul pentru mobil */
-    }
+    .live-player-section {
+        padding-top: 80px; 
+    }
 
-    .hero-banner h1 {
-        font-size: 2.5em;
-    }
-    
+    .hero-banner h1 {
+        font-size: 2.5em;
+    }
+    
   .menu-toggle {
     display: block;
   }
@@ -225,7 +224,7 @@ section {
     right: 0;
     width: 200px;
     padding: 10px;
-    text-align: left;
+    text-align: left;
   }
 
   .nav-links.active {
