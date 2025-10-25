@@ -3,6 +3,8 @@ window.onload = function() {
     const livePlayer = document.getElementById('live-player');
     const canaleContainer = document.getElementById('canale-container');
     const filterContainer = document.getElementById('filter-container');
+    const searchInput = document.getElementById('search-input'); // NOU: Selector Căutare
+
     let activeChannelButton = null; 
     let activeFilterButton = null; 
 
@@ -12,27 +14,27 @@ window.onload = function() {
         { "nume": "Antena 1", "link": "https://LINK_STREAM_ANTENA1", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Antena_1_logo_2022.svg", "categorie": "General" },
         { "nume": "PRO TV", "link": "https://LINK_STREAM_PROTV", "sigla": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Pro_TV_logo_2022.svg", "categorie": "General" },
         { "nume": "Kanal D", "link": "https://LINK_STREAM_KANALD", "sigla": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Kanal_D_Romania_logo_2022.svg", "categorie": "General" },
-        { "nume": "Kanal D2", "link": "https://LINK_STREAM_KANALD2", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/31/Kanal_D2_logo_2023.svg", "categorie": "General" }, // CORECTAT
+        { "nume": "Kanal D2", "link": "https://LINK_STREAM_KANALD2", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/31/Kanal_D2_logo_2023.svg", "categorie": "General" }, 
         { "nume": "TVR 1", "link": "https://LINK_STREAM_TVR1", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3b/TVR_1_logo_2022.svg", "categorie": "Știri" },
-        { "nume": "TVR 2", "link": "https://LINK_STREAM_TVR2", "sigla": "https://upload.wikimedia.org/wikipedia/commons/5/5a/TVR_2_logo_2022.svg", "categorie": "Cultură" }, // CORECTAT
-        { "nume": "TVR Info", "link": "https://LINK_STREAM_TVRINFO", "sigla": "https://upload.wikimedia.org/wikipedia/commons/5/50/TVR_Info_logo.svg", "categorie": "Știri" }, // CORECTAT
-        { "nume": "TVR Moldova", "link": "https://LINK_STREAM_TVRMOLDOVA", "sigla": "https://upload.wikimedia.org/wikipedia/commons/f/fb/TVR_Moldova_logo_2023.svg", "categorie": "Moldova" }, // CORECTAT
+        { "nume": "TVR 2", "link": "https://LINK_STREAM_TVR2", "sigla": "https://upload.wikimedia.org/wikipedia/commons/5/5a/TVR_2_logo_2022.svg", "categorie": "Cultură" }, 
+        { "nume": "TVR Info", "link": "https://LINK_STREAM_TVRINFO", "sigla": "https://upload.wikimedia.org/wikipedia/commons/5/50/TVR_Info_logo.svg", "categorie": "Știri" }, 
+        { "nume": "TVR Moldova", "link": "https://LINK_STREAM_TVRMOLDOVA", "sigla": "https://upload.wikimedia.org/wikipedia/commons/f/fb/TVR_Moldova_logo_2023.svg", "categorie": "Moldova" }, 
         { "nume": "Realitatea Plus", "link": "https://LINK_STREAM_REALITATEAPLUS", "sigla": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Realitatea_Plus_logo.svg", "categorie": "Știri" },
-        { "nume": "Antena 3 CNN", "link": "https://LINK_STREAM_ANTENA3CNN", "sigla": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Antena_3_CNN_logo_2022.svg", "categorie": "Știri" }, // CORECTAT
+        { "nume": "Antena 3 CNN", "link": "https://LINK_STREAM_ANTENA3CNN", "sigla": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Antena_3_CNN_logo_2022.svg", "categorie": "Știri" }, 
         { "nume": "România TV", "link": "https://LINK_STREAM_ROMANIATV", "sigla": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Romania_TV_logo.svg", "categorie": "Știri" },
         { "nume": "B1 TV", "link": "https://LINK_STREAM_B1TV", "sigla": "https://upload.wikimedia.org/wikipedia/commons/4/4e/B1_TV_logo.svg", "categorie": "Știri" },
         { "nume": "Prima TV", "link": "https://LINK_STREAM_PRIMATV", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Prima_TV_logo.svg", "categorie": "General" },
-        { "nume": "Prima Comedy", "link": "https://LINK_STREAM_PRIMACOMEDY", "sigla": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Prima_Comedy_logo.svg", "categorie": "Comedie" }, // CORECTAT
-        { "nume": "Prima News", "link": "https://LINK_STREAM_PRIMANEWS", "sigla": "https://upload.wikimedia.org/wikipedia/commons/0/03/Prima_News_logo_2022.svg", "categorie": "Știri" }, // CORECTAT
+        { "nume": "Prima Comedy", "link": "https://LINK_STREAM_PRIMACOMEDY", "sigla": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Prima_Comedy_logo.svg", "categorie": "Comedie" }, 
+        { "nume": "Prima News", "link": "https://LINK_STREAM_PRIMANEWS", "sigla": "https://upload.wikimedia.org/wikipedia/commons/0/03/Prima_News_logo_2022.svg", "categorie": "Știri" }, 
         { "nume": "Național TV", "link": "https://LINK_STREAM_NATIONALTV", "sigla": "https://upload.wikimedia.org/wikipedia/commons/2/2a/National_TV_logo.svg", "categorie": "General" },
-        { "nume": "Național 24 Plus", "link": "https://LINK_STREAM_NATIONAL24PLUS", "sigla": "https://upload.wikimedia.org/wikipedia/commons/9/98/Na%C8%9Bional_24_Plus_logo.svg", "categorie": "General" }, // CORECTAT
-        { "nume": "Digi Sport 1", "link": "https://LINK_STREAM_DIGISPORT1", "sigla": "https://upload.wikimedia.org/wikipedia/commons/9/91/Digi_Sport_logo_2019.svg", "categorie": "Sport" }, // CORECTAT
-        { "nume": "Digi Sport 2", "link": "https://LINK_STREAM_DIGISPORT2", "sigla": "https://upload.wikimedia.org/wikipedia/commons/9/91/Digi_Sport_logo_2019.svg", "categorie": "Sport" }, // CORECTAT
-        { "nume": "Digi Sport 3", "link": "https://LINK_STREAM_DIGISPORT3", "sigla": "https://upload.wikimedia.org/wikipedia/commons/9/91/Digi_Sport_logo_2019.svg", "categorie": "Sport" }, // CORECTAT
-        { "nume": "Digi Sport 4", "link": "https://LINK_STREAM_DIGISPORT4", "sigla": "https://upload.wikimedia.org/wikipedia/commons/9/91/Digi_Sport_logo_2019.svg", "categorie": "Sport" }, // CORECTAT
+        { "nume": "Național 24 Plus", "link": "https://LINK_STREAM_NATIONAL24PLUS", "sigla": "https://upload.wikimedia.org/wikipedia/commons/9/98/Na%C8%9Bional_24_Plus_logo.svg", "categorie": "General" }, 
+        { "nume": "Digi Sport 1", "link": "https://LINK_STREAM_DIGISPORT1", "sigla": "https://upload.wikimedia.org/wikipedia/commons/9/91/Digi_Sport_logo_2019.svg", "categorie": "Sport" }, 
+        { "nume": "Digi Sport 2", "link": "https://LINK_STREAM_DIGISPORT2", "sigla": "https://upload.wikimedia.org/wikipedia/commons/9/91/Digi_Sport_logo_2019.svg", "categorie": "Sport" }, 
+        { "nume": "Digi Sport 3", "link": "https://LINK_STREAM_DIGISPORT3", "sigla": "https://upload.wikimedia.org/wikipedia/commons/9/91/Digi_Sport_logo_2019.svg", "categorie": "Sport" }, 
+        { "nume": "Digi Sport 4", "link": "https://LINK_STREAM_DIGISPORT4", "sigla": "https://upload.wikimedia.org/wikipedia/commons/9/91/Digi_Sport_logo_2019.svg", "categorie": "Sport" }, 
         { "nume": "Eurosport 1", "link": "https://LINK_STREAM_EUROSPORT1", "sigla": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Eurosport_1_logo.svg", "categorie": "Sport" },
-        { "nume": "Eurosport 2", "link": "https://LINK_STREAM_EUROSPORT2", "sigla": "https://upload.wikimedia.org/wikipedia/commons/0/07/Eurosport_2_logo.svg", "categorie": "Sport" }, // CORECTAT
-        { "nume": "Film Now", "link": "https://LINK_STREAM_FILMNOW", "sigla": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Film_Now_logo_2022.svg", "categorie": "Filme" }, // CORECTAT
+        { "nume": "Eurosport 2", "link": "https://LINK_STREAM_EUROSPORT2", "sigla": "https://upload.wikimedia.org/wikipedia/commons/0/07/Eurosport_2_logo.svg", "categorie": "Sport" }, 
+        { "nume": "Film Now", "link": "https://LINK_STREAM_FILMNOW", "sigla": "https://upload.wikimedia.pedia.org/wikipedia/commons/7/7f/Film_Now_logo_2022.svg", "categorie": "Filme" }, 
         { "nume": "Cartoon Network", "link": "https://LINK_STREAM_CN", "sigla": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Cartoon_Network_2010_logo.svg", "categorie": "Desene" },
         { "nume": "Disney Channel", "link": "https://LINK_STREAM_DISNEY", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney_Channel_logo.svg", "categorie": "Desene" },
         { "nume": "Nickelodeon", "link": "https://LINK_STREAM_NICK", "sigla": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Nickelodeon_2023_logo.svg", "categorie": "Desene" },
@@ -43,9 +45,7 @@ window.onload = function() {
         { "nume": "Trinitas TV", "link": "https://LINK_STREAM_TRINITAS", "sigla": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Trinitas_TV_logo.svg", "categorie": "Religie" } 
     ];
     
-    // ... RESTUL CODULUI loadChannel, displayChannels, etc. RĂMÂNE IDENTIC CU ULTIMA VERSIUNE (funcționalitatea Playerului real)
-    
-    // FUNCȚIA CARE ÎNCARCĂ CANALUL ÎN PLAYER (IFRAME REAL)
+    // 2. FUNCȚIA CARE ÎNCARCĂ CANALUL ÎN PLAYER (IFRAME REAL)
     function loadChannel(channelName, channelUrl, buttonElement) {
         
         if (livePlayer) {
@@ -86,7 +86,7 @@ window.onload = function() {
     }
 
 
-    // 3. GENERAREA GRILEI DE CANALE (Neschimbată)
+    // 3. GENERAREA GRILEI DE CANALE
     function displayChannels(channels) {
         if (!canaleContainer) return;
 
@@ -107,10 +107,15 @@ window.onload = function() {
         });
     }
     
-    // 4. LOGICA DE FILTRARE (Neschimbată)
+    // 4. LOGICA DE FILTRARE
     function filterChannels(category, buttonElement) {
         let filteredChannels = [];
         
+        // Când se filtrează, șterge textul din caseta de căutare
+        if (searchInput) {
+            searchInput.value = '';
+        }
+
         if (category === 'Toate') {
             filteredChannels = tvChannels;
         } else {
@@ -137,7 +142,7 @@ window.onload = function() {
         }
     }
 
-    // 5. GENERAREA BUTOANELOR DE FILTRARE (Neschimbată)
+    // 5. GENERAREA BUTOANELOR DE FILTRARE
     function generateFilterButtons() {
         if (!filterContainer) return;
         
@@ -156,18 +161,52 @@ window.onload = function() {
         });
     }
 
+    // 6. LOGICA DE CĂUTARE (NOU)
+    function handleSearch() {
+        const searchTerm = document.getElementById('search-input').value.toLowerCase();
+        
+        // Filtrează TOATE canalele (ignoră filtrele de categorii)
+        const searchedChannels = tvChannels.filter(channel => 
+            channel.nume.toLowerCase().includes(searchTerm)
+        );
 
-    // 6. PORNIREA APLICAȚIEI: (Neschimbată)
+        displayChannels(searchedChannels);
+        
+        // Dezactivează butonul de filtrare activ când începe căutarea
+        if (activeFilterButton) {
+            activeFilterButton.classList.remove('active');
+            activeFilterButton = null; 
+        }
+
+        // Activează primul canal din lista NOUĂ, vizual ȘI în player
+        const firstChannelInNewList = canaleContainer.querySelector('.canal');
+        if (firstChannelInNewList) {
+             firstChannelInNewList.click(); 
+        } else {
+             livePlayer.innerHTML = `<p style="text-align: center; padding: 50px; color: #fff;">Nu s-au găsit canale care să se potrivească căutării.</p>`;
+        }
+    }
+
+
+    // 7. PORNIREA APLICAȚIEI:
     generateFilterButtons(); 
 
+    // Setează filtrul "Toate" ca activ inițial
     const initialFilterButton = filterContainer.querySelector('.filter-btn');
     if (initialFilterButton) {
         initialFilterButton.classList.add('active');
         activeFilterButton = initialFilterButton;
     }
-
+    
+    // NOU: Atașează evenimentul de căutare
+    if (searchInput) {
+        searchInput.addEventListener('input', handleSearch);
+    }
+    
+    // Afișează toate canalele la început
     displayChannels(tvChannels);
 
+    // Încarcă primul canal la început
     if (tvChannels.length > 0) {
         const initialChannelButton = canaleContainer.querySelector('.canal');
         if (initialChannelButton) {
