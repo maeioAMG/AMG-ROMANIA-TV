@@ -9,8 +9,7 @@
     
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mobile.css">
-    
-    </head>
+</head>
 <body>
     
     <header>
@@ -77,7 +76,7 @@
     </footer>
 
     <script>
-        // Folosim window.onload pentru a asigura ca toate elementele (inclusiv imaginile) sunt gata înainte de a atașa event listeners.
+        // Folosim window.onload pentru a asigura ca toate elementele sunt gata înainte de a atașa event listeners.
         window.onload = function() {
             const menuToggle = document.getElementById('menu-toggle-btn');
             const mainNav = document.getElementById('main-nav');
@@ -90,9 +89,7 @@
             if (menuToggle && mainNav) {
                 menuToggle.addEventListener('click', function() {
                     mainNav.classList.toggle('active');
-                    // Schimbă iconița din Hamburger în X și invers
                     menuToggle.innerHTML = mainNav.classList.contains('active') ? '&times;' : '&#9776;';
-                    // Log pentru debugging
                     console.log('Meniul mobil a fost comutat. Stare: ' + (mainNav.classList.contains('active') ? 'Deschis' : 'Închis'));
                 });
             }
@@ -105,11 +102,22 @@
                     button.addEventListener('click', function(e) {
                         e.preventDefault(); 
                         
-                        // !!! ACȚIUNE REALĂ: Redirecționare către pagina de Abonament !!!
-                        window.location.href = 'abonamente.html'; 
+                        let pachet = 'standard'; // Valoare implicită
                         
-                        // Log (poate fi văzut în Consola F12)
-                        console.log(`Butonul de abonare '${button.textContent.trim()}' a fost apăsat. REDIRECȚIONARE către abonamente.html.`);
+                        // Logica pentru a determina pachetul
+                        if (button.closest('.package-card.premium') || button.textContent.trim() === 'CEL MAI ALES') {
+                            pachet = 'premium';
+                        } else if (button.closest('.package-card.standard') || button.textContent.trim() === 'ALEGE') {
+                            pachet = 'standard';
+                        } else if (button.classList.contains('cta-button') || button.classList.contains('main-cta')) {
+                            // Butoanele din Header sau Hero duc la Premium ca CTA principal
+                            pachet = 'premium'; 
+                        }
+                        
+                        // Redirecționare către pagina de Abonament cu pachetul în URL
+                        window.location.href = `abonamente.html?pachet=${pachet}`; 
+                        
+                        console.log(`Butonul de abonare '${button.textContent.trim()}' a fost apăsat. Redirecționare către abonamente.html?pachet=${pachet}.`);
                     });
                 });
             } else {
@@ -123,7 +131,7 @@
                     <p>Codul real Cloudflare Stream Player va fi plasat aici, după configurarea CDN-ului.</p>
                 </div>`;
             }
-        }; // Se încheie window.onload
+        }; 
     </script>
 </body>
 </html>
