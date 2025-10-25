@@ -1,22 +1,12 @@
 @media (max-width: 768px) {
     /* ... (restul stilurilor mobile) ... */
 
-    /* Ajustări pentru Player pe mobil */
-    .hero-content h2 {
-        font-size: 1.8em; 
+    /* Pachetul Premium nu mai este mai mare pe mobil, dar rămâne colorat */
+    .package-card.premium {
+        padding: 30px;
+        border: 2px solid var(--color-cta);
     }
-    
-    .trial-overlay {
-        padding: 10px;
-    }
-    
-    .trial-overlay p {
-        font-size: 0.8em;
-        margin-bottom: 5px;
-    }
-
-    .trial-cta {
-        padding: 6px 15px;
-        font-size: 0.8em;
+    .packages-container {
+        gap: 20px;
     }
 }
