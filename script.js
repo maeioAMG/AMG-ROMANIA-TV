@@ -2,15 +2,18 @@ window.onload = function() {
     const menuToggle = document.getElementById('menu-toggle-btn');
     const mainNav = document.getElementById('main-nav');
     const livePlayer = document.getElementById('live-player');
-    const ctaButtons = document.querySelectorAll('button.cta-button, button.main-cta, button.secondary-cta');
     const channelsList = document.getElementById('channels-list');
 
-    // Date simulate pentru Grila TV 
+    // Numele de fișier al logo-ului (Vă rog să îl redenumiți așa: amg-logo.jpg)
+    const PLACEHOLDER_LOGO = "amg-logo.jpg";
+    
     const tvChannels = [
-        { name: "AMG LIVE", id: "amglive", category: "General", image: "AMG%20TV%20ROMANIA%20TV.jpg" },
-        { name: "PRO TV (Demo)", id: "protv", category: "Divertisment", image: "AMG%20TV%20ROMANIA%20TV.jpg" },
-        { name: "SPORT 1 (Demo)", id: "sport1", category: "Sport", image: "AMG%20TV%20ROMANIA%20TV.jpg" },
-        { name: "ȘTIRI (Demo)", id: "stiri", category: "Știri", image: "AMG%20TV%20ROMANIA%20TV.jpg" }
+        { name: "AMG LIVE", id: "amglive", image: PLACEHOLDER_LOGO },
+        { name: "PRO TV", id: "protv", image: PLACEHOLDER_LOGO },
+        { name: "SPORT 1", id: "sport1", image: PLACEHOLDER_LOGO },
+        { name: "ȘTIRI", id: "stiri", image: PLACEHOLDER_LOGO },
+        { name: "FILM", id: "film", image: PLACEHOLDER_LOGO },
+        { name: "Muzică", id: "muzica", image: PLACEHOLDER_LOGO }
     ];
 
     // 1. Logica Meniului Hamburger (Mobil) - Nemodificată
@@ -21,54 +24,21 @@ window.onload = function() {
         });
     }
 
-    // 2. Logica Butoanelor CTA (Abonare din Header/Pachete) - Nemodificată
-    if (ctaButtons.length > 0) {
-        ctaButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault(); 
-                
-                let pachet = 'premium'; 
-                if (button.closest('.package-card.standard') || button.textContent.trim() === 'ALEGE') {
-                    pachet = 'standard'; 
-                }
-                
-                window.location.href = `abonamente.html?pachet=${pachet}`; 
-            });
-        });
-    }
-
-    // 3. Logica Grila TV și Player (Demo)
+    // 2. Logica Playerului (Vizualizare Simplă)
     if (channelsList && livePlayer) {
         
-        function loadChannel(channelName, channelId) {
+        function loadChannel(channelName) {
             
-            // 1. Inserăm structura HTML a playerului (Simulare + Overlay)
+            // Aceasta este acum o simplă simulare video (fără overlay de abonament)
             livePlayer.innerHTML = `
-                <div class="player-content-wrapper">
-                    <div class="video-stream-area">
-                        <div class="demo-display">
-                            <h3>VIZIONARE GRATUITĂ: ${channelName.toUpperCase()}</h3>
-                            <p>Simulare de Redare Video Securizată</p>
-                            <div class="simulated-motion"></div> 
-                        </div>
-                    </div>
-                    
-                    <div class="trial-overlay">
-                        <p>Vizionează 5 minute gratuit (Trial). Calitatea poate fi limitată.</p>
-                        <button class="main-cta trial-cta">DEBLOCARE COMPLETĂ (ABONARE)</button>
+                <div class="player-content-wrapper" style="width: 100%; height: 100%;">
+                    <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; background: linear-gradient(135deg, #111 0%, #303030 100%);">
+                        <h3 style="color: #00c6ff; margin-bottom: 15px; font-size: 1.5em;">VIZIONARE: ${channelName.toUpperCase()}</h3>
+                        <p style="color: #aaa;">[Spațiu pentru Playerul Cloudflare Real]</p>
+                        <img src="${PLACEHOLDER_LOGO}" alt="Logo" style="height: 60px; opacity: 0.8; margin-top: 20px;">
                     </div>
                 </div>
             `;
-            
-            // 2. ATENȚIE: Re-atașăm listener-ul la noul buton creat, imediat după ce a fost inserat în DOM
-            const trialCtaButton = document.querySelector('.trial-cta');
-            if (trialCtaButton) {
-                 trialCtaButton.addEventListener('click', function(e) {
-                     e.preventDefault(); 
-                     // Acest buton trimite întotdeauna la pachetul premium ca stimulent
-                     window.location.href = `abonamente.html?pachet=premium`; 
-                 });
-            }
         }
         
         // Generarea butoanelor pentru canale
@@ -77,11 +47,11 @@ window.onload = function() {
             const button = document.createElement('button');
             button.className = 'channel-button';
             button.innerHTML = `<img src="${channel.image}" alt="${channel.name} Logo" style="height: 30px; margin-right: 10px;">${channel.name}`;
-            button.onclick = () => loadChannel(channel.name, channel.id);
+            button.onclick = () => loadChannel(channel.name);
             channelsList.appendChild(button);
         });
         
         // Încarcă canalul implicit la pornire
-        loadChannel(tvChannels[0].name, tvChannels[0].id);
+        loadChannel(tvChannels[0].name);
     }
 };
