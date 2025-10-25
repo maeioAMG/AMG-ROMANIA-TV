@@ -1,99 +1,23 @@
 @media (max-width: 768px) {
+    /* ... restul stilurilor mobile de la Pasul 4 ... */
     
-    /* 1. Resetare Header și Navigare pentru Mobil */
-    header {
-        padding: 10px 3%;
-        position: relative;
-    }
-
-    header h1 {
-        font-size: 1.2em; 
+    /* Stiluri Grila TV pentru mobil */
+    .tv-grid {
+        padding: 20px 3%;
     }
     
-    /* Meniul Hamburger: Ascunde meniul principal */
-    header nav {
-        display: none; 
-        position: absolute;
-        top: 60px; /* Sub header */
-        left: 0;
-        width: 100%;
-        background-color: var(--color-primary);
-        z-index: 1000;
-        flex-direction: column;
-        text-align: left;
-        padding: 10px 0;
+    .channels-container {
+        justify-content: space-between;
+        gap: 8px;
     }
     
-    header nav a {
-        display: block;
-        padding: 10px 5%;
-        margin: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    /* Arată meniul când este activat de JavaScript */
-    header nav.active {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: block; /* Afișează iconița hamburger */
-        font-size: 1.5em;
-        cursor: pointer;
-        color: var(--color-cta);
-        margin-left: 15px;
-    }
-
-    .cta-button {
-        padding: 8px 12px;
-        font-size: 0.8em;
-    }
-
-    /* 2. Secțiunea Erou (LIVE TV) */
-    .hero {
-        padding: 30px 3%;
-    }
-
-    .hero-content h2 {
-        font-size: 2em; 
-    }
-
-    .video-placeholder {
-        width: 100%; 
-        height: 220px; 
-        margin: 20px auto;
-    }
-
-    /* 3. Secțiunea de Pachete (Verticală) */
-    .packages-container {
-        flex-direction: column; /* Așază cardurile vertical */
-        gap: 20px;
-        padding: 0 5%;
-    }
-
-    .package-card {
-        width: 100%; 
-        padding: 20px;
-    }
-
-    .package-card.premium {
-        transform: none; /* Elimină mărirea pe mobil */
-    }
-
-    /* 4. Footer */
-    footer {
+    .channel-button {
+        width: 48%; /* Două butoane pe rând */
         font-size: 0.75em;
+        padding: 8px 10px;
+        justify-content: center;
     }
-    .footer-links {
-        display: block; /* Nu mai este flex */
-    }
-    footer a {
-        display: block;
-        margin: 5px 0;
-    }
-    
-    /* Stiluri ajustate pentru pagina de plată pe mobil */
-    .payment-details {
-        padding: 20px;
+    .channel-button img {
+        height: 20px !important;
     }
 }
