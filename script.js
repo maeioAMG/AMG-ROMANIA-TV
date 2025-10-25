@@ -8,13 +8,16 @@ window.onload = function() {
     // Numele de fișier al logo-ului (Asigurați-vă că fișierul amg-logo.jpg există)
     const PLACEHOLDER_LOGO = "amg-logo.jpg";
     
+    // ATENȚIE: Adăugăm proprietatea 'url' cu link-uri de test.
+    // Înlocuiți aceste URL-uri cu cele reale de la Cloudflare când le aveți!
     const tvChannels = [
-        { name: "AMG LIVE", id: "amglive", image: PLACEHOLDER_LOGO },
-        { name: "PRO TV", id: "protv", image: PLACEHOLDER_LOGO },
-        { name: "SPORT 1", id: "sport1", image: PLACEHOLDER_LOGO },
-        { name: "ȘTIRI", id: "stiri", image: PLACEHOLDER_LOGO },
-        { name: "FILM", id: "film", image: PLACEHOLDER_LOGO },
-        { name: "Muzică", id: "muzica", image: PLACEHOLDER_LOGO }
+        // Am adăugat URL-uri de test care vor afișa un ecran negru sau o eroare (până la înlocuirea lor cu link-uri reale)
+        { name: "AMG LIVE", id: "amglive", image: PLACEHOLDER_LOGO, url: "https://simulare-cloudflare-amg.net/embed.html" },
+        { name: "PRO TV", id: "protv", image: PLACEHOLDER_LOGO, url: "https://simulare-cloudflare-protv.net/embed.html" },
+        { name: "SPORT 1", id: "sport1", image: PLACEHOLDER_LOGO, url: "https://simulare-cloudflare-sport1.net/embed.html" },
+        { name: "ȘTIRI", id: "stiri", image: PLACEHOLDER_LOGO, url: "https://simulare-cloudflare-stiri.net/embed.html" },
+        { name: "FILM", id: "film", image: PLACEHOLDER_LOGO, url: "https://simulare-cloudflare-film.net/embed.html" },
+        { name: "Muzică", id: "muzica", image: PLACEHOLDER_LOGO, url: "https://simulare-cloudflare-muzica.net/embed.html" }
     ];
 
     // 1. Logica Meniului Hamburger (Mobil) - Nemodificată
@@ -26,15 +29,19 @@ window.onload = function() {
     }
 
     // Funcția care încarcă canalul în player și marchează butonul activ
-    function loadChannel(channelName, buttonElement) {
+    function loadChannel(channelName, channelUrl, buttonElement) {
         
-        // 1. Actualizează Playerul
+        // 1. Actualizează Playerul cu IFRAME (Elimină textul de simulare)
         livePlayer.innerHTML = `
             <div class="player-content-wrapper" style="width: 100%; height: 100%;">
-                <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; background: linear-gradient(135deg, #111 0%, #303030 100%);">
-                    <h3 style="color: #00c6ff; margin-bottom: 15px; font-size: 1.5em;">VIZIONARE: ${channelName.toUpperCase()}</h3>
-                    <p style="color: #aaa;">[Spațiu pentru Playerul Cloudflare Real]</p>
-                    <img src="${PLACEHOLDER_LOGO}" alt="Logo" style="height: 60px; opacity: 0.8; margin-top: 20px;">
+                <iframe src="${channelUrl}" 
+                        style="border:none; width:100%; height:100%;" 
+                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" 
+                        allowfullscreen="true">
+                </iframe>
+                
+                <div style="position: absolute; top: 10px; left: 10px; color: white; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 3px; font-size: 0.8em; z-index: 5;">
+                    VIZIONARE: ${channelName.toUpperCase()}
                 </div>
             </div>
         `;
@@ -58,18 +65,19 @@ window.onload = function() {
             const button = document.createElement('button');
             button.className = 'channel-button';
             
-            // MODIFICARE AICI: Structura HTML pentru noul design de logo-uri
+            // Structura HTML pentru noul design de logo-uri
             button.innerHTML = `<img src="${channel.image}" alt="${channel.name} Logo"><span>${channel.name}</span>`;
             
-            // Atribuie funcția la click
-            button.onclick = () => loadChannel(channel.name, button);
+            // Atribuie funcția la click (transmite numele, URL-ul și elementul buton)
+            button.onclick = () => loadChannel(channel.name, channel.url, button);
             channelsList.appendChild(button);
         });
         
         // Încarcă canalul implicit la pornire și marchează primul buton
         const firstButton = channelsList.querySelector('.channel-button');
         if(firstButton) {
-            loadChannel(tvChannels[0].name, firstButton);
+            // Asigură-te că transmiți URL-ul primului canal
+            loadChannel(tvChannels[0].name, tvChannels[0].url, firstButton);
         }
     }
 };
