@@ -2,9 +2,11 @@ window.onload = function() {
     // 1. SELECTORII ESENȚIALI
     const livePlayer = document.getElementById('live-player');
     const canaleContainer = document.getElementById('canale-container');
-    let activeChannelButton = null; // Urmărește butonul activ
+    const filterContainer = document.getElementById('filter-container');
+    let activeChannelButton = null; 
+    let activeFilterButton = null; 
 
-    // LISTA COMPLETĂ ȘI ACTUALIZATĂ A CANALELOR
+    // LISTA COMPLETĂ ȘI ACTUALIZATĂ A CANALELOR (Lăsată neschimbată)
     const tvChannels = [
         { "nume": "Digi 24", "link": "https://www.digi24.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Digi24_logo_2022.svg", "categorie": "Știri" },
         { "nume": "Antena 1", "link": "https://www.antena1.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Antena_1_logo_2022.svg", "categorie": "General" },
@@ -42,69 +44,122 @@ window.onload = function() {
     ];
 
     
-    // 2. FUNCȚIA CARE ÎNCARCĂ CANALUL ÎN PLAYER (IFRAME)
+    // FUNCȚIA CARE ÎNCARCĂ CANALUL ÎN PLAYER (DEVINE PLACEHOLDER)
     function loadChannel(channelName, channelUrl, buttonElement) {
         
-        // 2.1. Actualizează Playerul cu IFRAME
         if (livePlayer) {
+            // Playerul este înlocuit cu un mesaj static, arătând că a fost selectat canalul
             livePlayer.innerHTML = `
-                <div class="player-content-wrapper" style="width: 100%; height: 100%;">
-                    <iframe id="stream-iframe" src="${channelUrl}" 
-                            style="border:none; width:100%; height:100%;" 
-                            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" 
-                            allowfullscreen="true">
-                    </iframe>
-                    
-                    <div style="position: absolute; top: 10px; left: 10px; color: white; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 3px; font-size: 0.8em; z-index: 5;">
-                        VIZIONARE: ${channelName.toUpperCase()}
-                    </div>
+                <div class="player-content-wrapper" style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #000; color: #f0c040; text-align: center;">
+                    <h2 style="margin-bottom: 15px;">VIZIONARE: ${channelName.toUpperCase()}</h2>
+                    <p style="font-size: 1.1em; color: #ccc;">
+                        Link-ul direct de streaming (iframe) pentru acest canal nu este disponibil public.
+                    </p>
+                    <p style="font-size: 0.9em; color: #777; margin-top: 10px;">
+                        Trebuie să înlocuiți URL-ul <strong>"${channelUrl}"</strong> cu un link de stream real.
+                    </p>
                 </div>
             `;
         }
         
 
-        // 2.2. Marchează butonul nou ca fiind activ (adăugăm clasa CSS 'active' în style.css)
+        // Marchează butonul nou ca fiind activ (adăugăm clasa CSS 'active')
         if (activeChannelButton) {
-            activeChannelButton.classList.remove('active'); // Demarchează butonul vechi
+            activeChannelButton.classList.remove('active'); 
         }
         if (buttonElement) {
-            buttonElement.classList.add('active'); // Marchează butonul nou
+            buttonElement.classList.add('active'); 
             activeChannelButton = buttonElement;
         }
     }
 
 
-    // 3. GENERAREA GRILEI DE CANALE
+    // 3. GENERAREA GRILEI DE CANALE (Neschimbată)
     function displayChannels(channels) {
         if (!canaleContainer) return;
 
-        canaleContainer.innerHTML = '';
+        canaleContainer.innerHTML = ''; 
         
         channels.forEach(channel => {
-            const button = document.createElement('button'); // Modificat din 'a' în 'button'
-            button.className = 'canal'; // Folosim clasa CSS '.canal'
+            const button = document.createElement('button'); 
+            button.className = 'canal'; 
             
-            // Atribuim funcția la click pentru a încărca stream-ul în Player
             button.onclick = (e) => {
-                e.preventDefault(); // Oprește orice comportament implicit
+                e.preventDefault(); 
                 loadChannel(channel.nume, channel.link, button);
             };
             
-            // Structura HTML pentru noul design
             button.innerHTML = `<img src="${channel.sigla}" alt="${channel.nume} Logo"><span>${channel.nume}</span>`;
             
             canaleContainer.appendChild(button);
         });
+        
+        // Asigură că primul canal din lista filtrată/completă este activat vizual
+        const firstChannelButton = canaleContainer.querySelector('.canal');
+        if (firstChannelButton) {
+            if (activeChannelButton) {
+                activeChannelButton.classList.remove('active');
+            }
+            firstChannelButton.classList.add('active');
+            activeChannelButton = firstChannelButton;
+        }
+    }
+    
+    // 4. LOGICA DE FILTRARE (Păstrată și funcțională)
+    function filterChannels(category, buttonElement) {
+        let filteredChannels = [];
+        
+        if (category === 'Toate') {
+            filteredChannels = tvChannels;
+        } else {
+            filteredChannels = tvChannels.filter(channel => channel.categorie === category);
+        }
+        
+        // Marchează butonul de filtrare activ
+        if (activeFilterButton) {
+            activeFilterButton.classList.remove('active');
+        }
+        if (buttonElement) {
+            buttonElement.classList.add('active');
+            activeFilterButton = buttonElement;
+        }
+        
+        displayChannels(filteredChannels);
+    }
 
-        // 4. ÎNCARCĂ CANALUL IMPLICIT LA PORNIRE
-        const firstButton = canaleContainer.querySelector('.canal');
-        if(firstButton && tvChannels.length > 0) {
-            // Încărcăm primul canal (Digi 24)
-            loadChannel(tvChannels[0].nume, tvChannels[0].link, firstButton);
+    // 5. GENERAREA BUTOANELOR DE FILTRARE (Păstrată și funcțională)
+    function generateFilterButtons() {
+        if (!filterContainer) return;
+        
+        const categories = ['Toate', ...new Set(tvChannels.map(channel => channel.categorie))];
+        
+        categories.forEach(category => {
+            const button = document.createElement('button');
+            button.className = 'filter-btn';
+            button.textContent = category;
+            
+            button.onclick = () => {
+                filterChannels(category, button);
+            };
+            
+            filterContainer.appendChild(button);
+        });
+
+        const initialFilterButton = filterContainer.querySelector('.filter-btn');
+        if (initialFilterButton) {
+            initialFilterButton.classList.add('active');
+            activeFilterButton = initialFilterButton;
         }
     }
 
 
-    // Pornirea aplicației: Afișează toate canalele și încarcă primul canal
+    // 6. PORNIREA APLICAȚIEI:
+    generateFilterButtons(); 
     displayChannels(tvChannels);
+
+    // Încarcă canalul implicit (Digi 24) cu mesajul de placeholder
+    if (tvChannels.length > 0) {
+        const initialButton = canaleContainer.querySelector('.canal');
+        loadChannel(tvChannels[0].nume, tvChannels[0].link, initialButton);
+    }
 };
