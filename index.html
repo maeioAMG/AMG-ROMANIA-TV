@@ -17,8 +17,10 @@
   <nav class="navbar">
     <div class="logo">📡 AMG Romania TV</div>
     <button class="menu-toggle" aria-label="Deschide meniul">☰</button>
-    <ul class="nav-links" id="main-nav">       <li><a href="#">Acasă</a></li>
-      <li><a href="#player">Live TV</a></li>       <li><a href="#canale">Canale</a></li>
+    <ul class="nav-links" id="main-nav">
+      <li><a href="#">Acasă</a></li>
+      <li><a href="#player">Live TV</a></li>
+      <li><a href="#canale">Canale</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -28,18 +30,22 @@
       <h1>🇷🇴 AMG ROMANIA TV</h1>
       <p>Televiziunea românească pentru diaspora</p>
       <p class="subtext">Acum cu peste 50 de canale disponibile</p>
-      <a href="#player" class="btn">Vizionează Live</a>     </div>
+      <a href="#player" class="btn">Vizionează Live</a>
+    </div>
   </header>
 
-    <section id="player" class="live-player-section">
-    <div class="video-placeholder" id="live-player">
-        <p style="text-align: center; padding: 50px; color: #f0c040;">Selectați un canal de mai jos pentru a începe vizionarea.</p>
-    </div>
+    <section id="player" class="live-player-section">
+    <div class="video-placeholder" id="live-player">
+        <p style="text-align: center; padding: 50px; color: #f0c040;">Selectați un canal de mai jos pentru a începe vizionarea.</p>
+    </div>
   </section>
 
   <section id="canale">
     <h2>📺 Alege Canalul Preferat</h2>
-    <div class="grid-canale" id="canale-container"></div>
+    
+    <div class="filter-bar" id="filter-container">
+        </div>
+        <div class="grid-canale" id="canale-container"></div>
   </section>
 
   <section id="contact">
@@ -57,8 +63,8 @@
     const navLinks = document.querySelector('.nav-links');
     toggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
-      // Schimbă simbolul hamburgerului
-      toggle.innerHTML = navLinks.classList.contains('active') ? '&times;' : '&#9776;';
+      // Schimbă simbolul hamburgerului
+      toggle.innerHTML = navLinks.classList.contains('active') ? '&times;' : '&#9776;';
     });
   </script>
 </body>
