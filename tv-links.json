@@ -24,10 +24,10 @@
   { "nume": "Eurosport 1", "link": "https://www.eurosport.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Eurosport_1_logo.svg", "categorie": "Sport" },
   { "nume": "Eurosport 2", "link": "https://www.eurosport.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Eurosport_1_logo.svg", "categorie": "Sport" },
   { "nume": "Film Now", "link": "https://www.filmnow.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Pro_TV_logo_2022.svg", "categorie": "Filme" },
-  { "nume": "HBO România", "link": "https://www.hbo.ro", "sigla": "https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Logo.svg", "categorie": "Filme" },
   { "nume": "Cartoon Network", "link": "https://www.cartoonnetwork.ro", "sigla": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Cartoon_Network_2010_logo.svg", "categorie": "Desene" },
   { "nume": "Disney Channel", "link": "https://www.disneychannel.disney.ro", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney_Channel_logo.svg", "categorie": "Desene" },
   { "nume": "Nickelodeon", "link": "https://www.nickelodeon.ro", "sigla": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Nickelodeon_2023_logo.svg", "categorie": "Desene" },
   { "nume": "Minimax", "link": "https://www.minimax.ro", "sigla": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Minimax_logo.svg", "categorie": "Desene" },
   { "nume": "Etno TV", "link": "https://www.etnotv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Etno_TV_logo_2022.svg", "categorie": "Muzică" },
-  { "nume": "Favorit TV", "link": "https://www.favorittv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/
+  { "nume": "Favorit TV", "link": "https://www.favorittv.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Favorit_TV_logo_2022.svg", "categorie": "Muzică" },
+  { "nume": "Taraf TV", "link": "https://www.taraftv.ro/live", "sigla": "https://upload
