@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mobile.css">
     
-    </head>
+</head>
 <body>
     
     <header>
@@ -44,8 +44,7 @@
                 </div>
             </div>
 
-            <button class="main-cta">Începe Vizionarea</button>
-        </div>
+            </div>
     </section>
     
     <section class="tv-grid">
@@ -86,78 +85,6 @@
         <p>&copy; 2025 AMG ROMANIA TV. Toate drepturile rezervate. | <a href="#">FAQ</a> | <a href="#">Termeni & Condiții</a></p>
     </footer>
 
-    <script>
-        window.onload = function() {
-            const menuToggle = document.getElementById('menu-toggle-btn');
-            const mainNav = document.getElementById('main-nav');
-            const livePlayer = document.getElementById('live-player');
-            const ctaButtons = document.querySelectorAll('button.cta-button, button.main-cta, button.secondary-cta');
-            const channelsList = document.getElementById('channels-list');
-
-            // Date simulate pentru Grila TV (Înlocuiți cu posturile reale)
-            const tvChannels = [
-                { name: "AMG LIVE", id: "amglive", category: "General", image: "logo-amg.jpg" },
-                { name: "PRO TV (Simulare)", id: "protv", category: "Divertisment", image: "logo-protv.jpg" },
-                { name: "SPORT 1 (Simulare)", id: "sport1", category: "Sport", image: "logo-sport.jpg" },
-                { name: "ȘTIRI (Simulare)", id: "stiri", category: "Știri", image: "logo-stiri.jpg" }
-            ];
-
-            // 1. Logica Meniului Hamburger (Mobil)
-            if (menuToggle && mainNav) {
-                menuToggle.addEventListener('click', function() {
-                    mainNav.classList.toggle('active');
-                    menuToggle.innerHTML = mainNav.classList.contains('active') ? '&times;' : '&#9776;';
-                });
-            }
-
-            // 2. Logica Butoanelor CTA (Abonare) - Rămâne neschimbată
-            if (ctaButtons.length > 0) {
-                ctaButtons.forEach(button => {
-                    button.addEventListener('click', function(e) {
-                        e.preventDefault(); 
-                        
-                        let pachet = 'standard';
-                        if (button.closest('.package-card.premium') || button.textContent.trim() === 'CEL MAI ALES' || button.classList.contains('cta-button') || button.classList.contains('main-cta')) {
-                            pachet = 'premium'; 
-                        }
-                        
-                        window.location.href = `abonamente.html?pachet=${pachet}`; 
-                    });
-                });
-            }
-
-            // 3. Logica Grila TV și Player (Simulare)
-            if (channelsList && livePlayer) {
-                
-                // Functie pentru a simula incarcarea playerului
-                function loadChannel(channelName, channelId) {
-                    // !!! AICI VEȚI INSERA CODUL REAL CLOUDFLARE !!!
-                    // Ex: livePlayer.innerHTML = `<iframe src="https://embed.videodelivery.net/embed/r46c.html?video=${channelId}" ...>`;
-                    
-                    // Simularea afisarii canalului:
-                    livePlayer.innerHTML = `
-                        <div style="background-color: #000; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                            <h3 style="color: var(--color-cta); margin-bottom: 10px;">SE VIZIONEAZĂ ACUM: ${channelName.toUpperCase()}</h3>
-                            <p style="color: #aaa;">(Simulare de redare live securizată)</p>
-                            <img src="AMG%20TV%20ROMANIA%20TV.jpg" alt="Logo" style="height: 50px; opacity: 0.7; margin-top: 15px;">
-                        </div>
-                    `;
-                }
-                
-                // Generarea butoanelor pentru canale
-                tvChannels.forEach(channel => {
-                    const button = document.createElement('button');
-                    button.className = 'channel-button';
-                    // Folosim denumirile din fișierul dumneavoastră .jpg pentru logo
-                    button.innerHTML = `<img src="${channel.image}" alt="${channel.name} Logo" style="height: 30px; margin-right: 10px;">${channel.name}`;
-                    button.onclick = () => loadChannel(channel.name, channel.id);
-                    channelsList.appendChild(button);
-                });
-                
-                // Incarca canalul implicit la pornire (AMG LIVE)
-                loadChannel(tvChannels[0].name, tvChannels[0].id);
-            }
-        }; 
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
