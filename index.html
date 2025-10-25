@@ -3,41 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMG Romania TV – Diaspora Online</title>
-    <link rel="stylesheet" href="style.css"> 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>AMG ROMANIA TV - Player Live</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="AMG Romania TV Logo" class="logo-img">
-            <span class="logo-text">AMG Romania TV</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#">Acasă</a></li>
-            <li><a href="#player">Live TV</a></li>
-            <li><a href="#canale">Canale</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <main>
-        <section class="placeholder-content"></section>
+    <div class="container">
         
-        <section id="player" class="live-player-section">
-            <div class="video-placeholder" id="live-player">
-                <p>Playerul va apărea aici.</p>
+        <div class="main-content">
+            
+            <div class="navbar-top">
+                <div class="logo">
+                    <img src="logo.png" alt="AMG Romania TV Logo">
+                </div>
             </div>
-        </section>
 
-        <section id="canale">
-            <h2>📺 Alege Canalul Preferat</h2>
-            <div class="filter-bar" id="filter-container"></div>
-            <div class="grid-canale" id="canale-container"></div>
-        </section>
-    </main>
-    
+            <div class="player-container">
+                <div class="player-aspect-ratio">
+                    <div id="live-player" class="live-player">
+                        </div>
+                </div>
+            </div>
+
+            <div class="ad-space">
+                </div>
+            
+        </div>
+
+        <div class="sidebar">
+
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Căutați un canal...">
+            </div>
+
+            <div class="navbar-canale" id="filter-container">
+                </div>
+
+            <div class="canale-grid" id="canale-container">
+                </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
