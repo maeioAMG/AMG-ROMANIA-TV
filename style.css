@@ -1,41 +1,76 @@
-/* Stiluri pentru Grila TV (Nou) */
-.tv-grid {
-    padding: 30px 5%;
-    background-color: #0d224d; /* O nuanță mai deschisă de primar */
+/* Stiluri adăugate pentru Playerul cu Trial */
+
+.player-content-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-.tv-grid h3 {
-    text-align: center;
-    font-family: var(--font-heading);
-    color: var(--color-secondary);
-    margin-bottom: 20px;
+.video-stream-area {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
 }
 
-.channels-container {
+.demo-display {
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
-    gap: 10px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.channel-button {
-    background-color: #1a1a1a;
-    color: var(--color-text-light);
-    border: 1px solid var(--color-secondary);
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 0.9em;
-    font-weight: bold;
-    display: flex;
     align-items: center;
-    transition: background-color 0.2s, transform 0.1s;
+    color: var(--color-text-light);
+    background: linear-gradient(45deg, #111 0%, #333 100%);
+    overflow: hidden;
 }
 
-.channel-button:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
-    transform: translateY(-2px);
+/* Simulare de mișcare (pentru a nu arăta static) */
+.simulated-motion {
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    opacity: 0.1;
+    background: repeating-linear-gradient(
+        -45deg,
+        var(--color-secondary),
+        var(--color-secondary) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    animation: moveStripes 60s linear infinite;
+}
+
+@keyframes moveStripes {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 1000px 1000px;
+    }
+}
+
+
+/* Overlay CTA (Mesajul de Trial) */
+.trial-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.85); /* Fundal semi-transparent */
+    color: var(--color-text-light);
+    text-align: center;
+    border-top: 2px solid var(--color-cta);
+    z-index: 10;
+}
+
+.trial-overlay p {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+.trial-cta {
+    padding: 8px 20px;
 }
