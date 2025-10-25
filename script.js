@@ -1,3 +1,4 @@
+// ACESTA ESTE CODUL FINAL ȘI CORECT PENTRU script.js
 window.onload = function() {
     const menuToggle = document.getElementById('menu-toggle-btn');
     const mainNav = document.getElementById('main-nav');
