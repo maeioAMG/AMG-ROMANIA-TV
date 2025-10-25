@@ -1,23 +1,22 @@
 @media (max-width: 768px) {
-    /* ... restul stilurilor mobile de la Pasul 4 ... */
-    
-    /* Stiluri Grila TV pentru mobil */
-    .tv-grid {
-        padding: 20px 3%;
+    /* ... (restul stilurilor mobile) ... */
+
+    /* Ajustări pentru Player pe mobil */
+    .hero-content h2 {
+        font-size: 1.8em; 
     }
     
-    .channels-container {
-        justify-content: space-between;
-        gap: 8px;
+    .trial-overlay {
+        padding: 10px;
     }
     
-    .channel-button {
-        width: 48%; /* Două butoane pe rând */
-        font-size: 0.75em;
-        padding: 8px 10px;
-        justify-content: center;
+    .trial-overlay p {
+        font-size: 0.8em;
+        margin-bottom: 5px;
     }
-    .channel-button img {
-        height: 20px !important;
+
+    .trial-cta {
+        padding: 6px 15px;
+        font-size: 0.8em;
     }
 }
