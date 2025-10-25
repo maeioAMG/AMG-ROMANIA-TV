@@ -3,35 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMG ROMANIA TV: Alege Abonamentul Tău</title>
+    <title>Finalizează Abonamentul - AMG ROMANIA TV</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mobile.css">
+
     <style>
-        /* Stiluri specifice pentru această pagină */
-        .page-content {
-            padding: 100px 5%;
-            min-height: 80vh;
+        /* Stiluri specifice pentru Pagina de Plata */
+        .payment-section {
+            padding: 50px 5%;
             text-align: center;
+            min-height: 80vh;
         }
-        .success-message {
-            font-size: 2em;
+
+        .payment-section h2 {
+            font-family: var(--font-heading);
+            color: var(--color-secondary);
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+
+        .payment-details {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+            text-align: left;
+        }
+        
+        .payment-details h3 {
             color: var(--color-cta);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 201, 0, 0.3);
+            padding-bottom: 10px;
         }
-        .back-button {
-            background-color: var(--color-secondary);
+
+        .payment-details form input, .payment-details form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            background-color: #222;
+            color: var(--color-text-light);
+            box-sizing: border-box;
+        }
+
+        .payment-details form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .submit-payment {
+            width: 100%;
+            background-color: var(--color-cta);
             color: var(--color-primary);
-            padding: 15px 30px;
-            text-decoration: none;
+            border: none;
+            padding: 15px;
+            font-size: 1.1em;
             font-weight: bold;
+            cursor: pointer;
             border-radius: 5px;
+            text-transform: uppercase;
             transition: background-color 0.3s;
         }
-        .back-button:hover {
-            background-color: #00A3CC;
+
+        .submit-payment:hover {
+            background-color: #FFEA00;
         }
+        
+        .selected-package {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #031737;
+            border: 1px solid var(--color-secondary);
+            border-radius: 4px;
+        }
+        .selected-package p {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
     </style>
 </head>
 <body>
@@ -41,20 +98,84 @@
             <img src="AMG%20TV%20ROMANIA%20TV.jpg" alt="AMG Romania TV Logo" class="logo-img"> 
             <h1>AMG ROMANIA TV</h1>
         </div>
-        </header>
+    </header>
 
-    <section class="page-content">
-        <h2 class="success-message">🎉 Pagina de Abonamente Funcționează! 🎉</h2>
-        <p>Ați ajuns la pagina de finalizare a comenzii. Aici va fi integrat formularul de plată.</p>
-        <p>Aceasta confirmă că logica de click a butoanelor **este corectă**.</p>
+    <section class="payment-section">
+        <h2>Finalizează Abonamentul Tău</h2>
         
-        <div style="margin-top: 50px;">
-            <a href="index.html" class="back-button">Înapoi la Pagina Principală</a>
+        <div class="payment-details">
+            <div class="selected-package" id="selected-package-info">
+                <p>Pachet Selectat: <strong>Încarcă...</strong></p>
+                <p>Preț: <strong>...</strong></p>
+            </div>
+            
+            <h3>Detalii de Plată Securizată</h3>
+            <p style="margin-bottom: 25px; font-size: 0.9em; color: #aaa;">Plata este procesată în siguranță prin intermediul partenerului nostru de plăți.</p>
+            
+            <form action="#" method="POST">
+                
+                <label for="nume">Nume Complet:</label>
+                <input type="text" id="nume" name="nume" required>
+                
+                <label for="email">Adresă de Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="card">Număr Card (Simulare):</label>
+                <input type="text" id="card" name="card" placeholder="XXXX XXXX XXXX XXXX" required>
+                
+                <div style="display: flex; gap: 20px;">
+                    <div style="flex: 1;">
+                        <label for="exp">Dată Expirare:</label>
+                        <input type="text" id="exp" name="exp" placeholder="LL/AA" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="cvc">CVC:</label>
+                        <input type="text" id="cvc" name="cvc" placeholder="***" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-payment">Plătește Acum</button>
+            </form>
+
         </div>
     </section>
 
     <footer>
         <p>&copy; 2025 AMG ROMANIA TV. Toate drepturile rezervate. | <a href="#">FAQ</a> | <a href="#">Termeni & Condiții</a></p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Definim detaliile pachetelor
+            const packages = {
+                'standard': { name: 'STANDARD ACASĂ', price: '$6.99 / lună' },
+                'premium': { name: 'PREMIUM DIASPORA', price: '$10.99 / lună' }
+            };
+
+            // Preluăm parametrul 'pachet' din URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedPackageKey = urlParams.get('pachet');
+            
+            const infoDiv = document.getElementById('selected-package-info');
+
+            if (selectedPackageKey && packages[selectedPackageKey]) {
+                const selected = packages[selectedPackageKey];
+                
+                // Afișăm detaliile pachetului
+                infoDiv.innerHTML = `
+                    <p>Pachet Selectat: <strong>${selected.name}</strong></p>
+                    <p>Preț: <strong>${selected.price}</strong></p>
+                `;
+                console.log(`Pachetul selectat este: ${selected.name}`);
+            } else {
+                // Afișăm un mesaj de eroare și un link înapoi la index
+                infoDiv.innerHTML = `
+                    <p><strong>Eroare:</strong> Nu s-a putut identifica pachetul.</p>
+                    <p>Vă rugăm reveniți la <a href="index.html" style="color: var(--color-cta);">pagina principală</a> și reîncercați.</p>
+                `;
+                console.error('Nu s-a găsit parametrul de pachet în URL.');
+            }
+        });
+    </script>
 </body>
 </html>
