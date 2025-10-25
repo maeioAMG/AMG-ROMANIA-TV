@@ -1,3 +1,4 @@
+/* RESET DE BAZĂ */
 * {
     margin: 0;
     padding: 0;
@@ -5,252 +6,224 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #000;
+    font-family: sans-serif;
+    background-color: #121212; /* Fundal întunecat */
     color: #fff;
+    line-height: 1.6;
 }
 
-/* --- NAV BAR --- */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #111;
+/* CONTAINERUL PRINCIPAL (Flexbox pentru layout) */
+.container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 24px;
-    z-index: 1000;
-}
-
-.navbar .logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo-img {
-    height: 40px; /* Setează înălțimea logo-ului */
-    margin-right: 10px;
-}
-
-.logo-text {
-    font-weight: bold;
-    font-size: 1.2em;
-    color: #f0c040;
-}
-
-
-.navbar .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.navbar .nav-links li a {
-    color: #f0c040;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 1.5em;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-
-/* --- HERO BANNER --- */
-.hero-banner {
-    background-image: url('amg-bg.jpeg'); /* Presupunând că aveți această imagine */
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.hero-banner .overlay {
-    background-color: rgba(0,0,0,0.6);
-    padding: 40px;
-    border-radius: 12px;
-}
-
-.hero-banner h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-    color: #fff;
-}
-
-.hero-banner p {
-    font-size: 1.4em;
-    color: #f0c040;
-    margin-bottom: 10px;
-}
-
-.hero-banner .subtext {
-    font-size: 1.1em;
-    color: #ccc;
-    margin-bottom: 20px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #f0c040;
-    color: #000;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 6px;
-}
-
-section {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-/* --- LIVE PLAYER (16:9 CORECTAT) --- */
-.live-player-section {
-    padding: 100px 20px 40px; 
-    background-color: #000;
-    text-align: center;
-}
-
-.video-placeholder {
-    position: relative; 
-    width: 95%; 
-    max-width: 1300px; 
-    padding-bottom: 56.25%; /* Raport 16:9 */
-    height: 0; 
+    max-width: 1400px; /* Lățimea maximă a întregii aplicații */
     margin: 0 auto;
-    background-color: #111;
-    border-radius: 8px;
-    overflow: hidden; 
-    box-shadow: 0 0 15px rgba(240, 192, 64, 0.3);
+    min-height: 100vh;
 }
 
-.video-placeholder iframe {
+/* --- SECȚIUNEA PRINCIPALĂ (Playerul și Navbar-ul de sus) --- */
+.main-content {
+    flex-grow: 1; /* Ocupă spațiul rămas */
+    max-width: calc(100% - 300px); /* Ocupă tot spațiul mai puțin lățimea sidebar-ului */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* BARĂ SUPERIOARĂ */
+.navbar-top {
+    padding: 10px 0;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.logo img {
+    height: 40px; 
+    margin-right: 20px;
+}
+
+/* PLAYER CONTAINER (Aspect Ratio 16:9) */
+.player-container {
+    background-color: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.player-aspect-ratio {
+    padding-top: 56.25%; /* 16:9 Aspect Ratio (9 / 16 * 100) */
+    position: relative;
+}
+
+.live-player {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.video-placeholder p {
-    color: #f0c040;
-    padding: 50px;
+/* SPAȚIU RECLAMĂ/AD-SPACE */
+.ad-space {
+    background-color: #222;
+    color: #888;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    flex-shrink: 0; /* Previne micșorarea */
+    min-height: 50px;
 }
 
-/* --- BARA DE FILTRARE --- */
-.filter-bar {
+
+/* --- SECȚIUNEA LATERALĂ (SIDEBAR) --- */
+.sidebar {
+    width: 300px; /* Lățimea fixă a sidebar-ului */
+    background-color: #1e1e1e;
+    border-left: 1px solid #333;
+    overflow-y: auto; /* Permite scroll în sidebar */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+/* --- STILURI FILTRE (NAVBAR CANALE) --- */
+.navbar-canale {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 10px;
-    gap: 10px; 
+    padding: 5px;
+    border-bottom: 1px solid #333;
 }
 
-
-/* --- GRILA CANALE --- */
-.grid-canale {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 16px;
-    padding: 10px;
-    max-width: 1200px; 
-    margin: 0 auto;
-}
-
-.canal {
-    background-color: #111;
-    border-radius: 8px;
-    padding: 10px;
-    border: 3px solid transparent; 
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    cursor: pointer; 
-}
-
-.canal:hover {
-    transform: scale(1.05);
-    border-color: rgba(240, 192, 64, 0.5); 
-}
-
-/* STIL CANAL ACTIV */
-.canal.active {
-    border: 3px solid #f0c040; 
-    background-color: #222; 
-    box-shadow: 0 0 10px rgba(240, 192, 64, 0.7);
-}
-
-.canal img {
-    max-width: 100%;
-    height: 50px;
-    object-fit: contain;
-    margin-bottom: 8px;
-}
-
-.canal span {
-    display: block;
-    font-weight: bold;
-    color: #f0c040;
-}
-
-/* --- BUTOANE FILTRARE --- */
 .filter-btn {
-    padding: 8px 16px;
-    background-color: #f0c040;
-    color: #000;
+    background-color: #333;
+    color: #fff;
     border: none;
+    padding: 6px 10px;
+    margin: 5px;
     border-radius: 4px;
     cursor: pointer;
-    margin: 5px;
-    font-weight: bold;
-    transition: background-color 0.2s;
+    font-size: 0.9em;
+    transition: background-color 0.2s, color 0.2s;
+    flex-shrink: 0;
 }
 
 .filter-btn:hover {
-    background-color: #ffd700;
+    background-color: #444;
 }
 
 .filter-btn.active {
-    background-color: #ffd700;
-    color: #000;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    background-color: #f0c040; /* Culoarea galben-auriu activă */
+    color: #121212;
+    font-weight: bold;
 }
 
-/* --- RESPONSIVITATE --- */
-@media screen and (max-width: 768px) {
-    .live-player-section {
-        padding-top: 80px; 
-    }
+/* --- STILURI GRILĂ CANALE (Lista propriu-zisă) --- */
+.canale-grid {
+    padding: 10px;
+    overflow-y: auto;
+    flex-grow: 1; /* Permite grilei să ocupe spațiul rămas și să aibă scroll */
+}
 
-    .hero-banner h1 {
-        font-size: 2.5em;
+.canal {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.canal:hover {
+    background-color: #2a2a2a;
+    border-color: #f0c040;
+}
+
+.canal.active {
+    background-color: #f0c040; /* Culoarea galben-auriu pentru canalul selectat */
+    color: #121212;
+    font-weight: bold;
+}
+
+.canal img {
+    width: 30px; 
+    height: 30px;
+    object-fit: contain;
+    margin-right: 10px;
+    background-color: #fff; /* Fundal alb pentru siglele transparente */
+    border-radius: 4px;
+    padding: 3px;
+}
+
+.canal span {
+    font-size: 0.95em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- STILURI CĂUTARE (NOU) --- */
+.search-container {
+    padding: 10px 15px;
+    border-bottom: 1px solid #333;
+}
+
+#search-input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #f0c040; /* Culoarea galben-auriu */
+    border-radius: 6px;
+    background-color: #222;
+    color: #fff;
+    font-size: 1em;
+    box-sizing: border-box; /* Asigură că padding-ul nu mărește lățimea totală */
+}
+
+#search-input::placeholder {
+    color: #aaa;
+}
+
+/* MEDIA QUERIES PENTRU RESPONSIVITATE */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
     }
     
-    .menu-toggle {
-        display: block;
+    .main-content {
+        max-width: 100%;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        border-left: none;
+        border-top: 1px solid #333;
     }
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #111;
-        position: absolute;
-        top: 64px;
-        right: 0;
-        width: 200px;
-        padding: 10px;
-        text-align: left;
+    .canale-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 8px;
     }
 
-    .nav-links.active {
-        display: flex;
+    .canal {
+        margin-bottom: 0;
+    }
+
+    .navbar-top {
+        justify-content: center;
     }
 }
