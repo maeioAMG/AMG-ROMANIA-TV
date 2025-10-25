@@ -1,14 +1,10 @@
 window.onload = function() {
-    // 1. SELECTORUL CORECTAT
-    // Noul ID din index.html este 'canale-container', nu 'channels-list'
-    const canaleContainer = document.getElementById('canale-container'); 
-    
-    // Logica meniului hamburger a fost mutată direct în HTML, deci o putem ignora aici.
-    
-    // VARIABILA GLOBALĂ PENTRU CANALUL ACTIV (nu mai este necesară aici, dar o păstrăm pentru dezvoltări viitoare)
-    // let activeChannelButton = null;
+    // 1. SELECTORII ESENȚIALI
+    const livePlayer = document.getElementById('live-player');
+    const canaleContainer = document.getElementById('canale-container');
+    let activeChannelButton = null; // Urmărește butonul activ
 
-    // LISTA COMPLETĂ ȘI ACTUALIZATĂ A CANALELOR (34 de canale)
+    // LISTA COMPLETĂ ȘI ACTUALIZATĂ A CANALELOR
     const tvChannels = [
         { "nume": "Digi 24", "link": "https://www.digi24.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Digi24_logo_2022.svg", "categorie": "Știri" },
         { "nume": "Antena 1", "link": "https://www.antena1.ro/live", "sigla": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Antena_1_logo_2022.svg", "categorie": "General" },
@@ -46,36 +42,69 @@ window.onload = function() {
     ];
 
     
-    // Funcția principală de afișare/filtrare a grilei (simplificată pentru a folosi noul design)
-    function displayChannels(channels) {
-        if (!canaleContainer) return; // Ieșire rapidă dacă elementul nu este găsit
+    // 2. FUNCȚIA CARE ÎNCARCĂ CANALUL ÎN PLAYER (IFRAME)
+    function loadChannel(channelName, channelUrl, buttonElement) {
+        
+        // 2.1. Actualizează Playerul cu IFRAME
+        if (livePlayer) {
+            livePlayer.innerHTML = `
+                <div class="player-content-wrapper" style="width: 100%; height: 100%;">
+                    <iframe id="stream-iframe" src="${channelUrl}" 
+                            style="border:none; width:100%; height:100%;" 
+                            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" 
+                            allowfullscreen="true">
+                    </iframe>
+                    
+                    <div style="position: absolute; top: 10px; left: 10px; color: white; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 3px; font-size: 0.8em; z-index: 5;">
+                        VIZIONARE: ${channelName.toUpperCase()}
+                    </div>
+                </div>
+            `;
+        }
+        
 
-        canaleContainer.innerHTML = ''; // Golește containerul
+        // 2.2. Marchează butonul nou ca fiind activ (adăugăm clasa CSS 'active' în style.css)
+        if (activeChannelButton) {
+            activeChannelButton.classList.remove('active'); // Demarchează butonul vechi
+        }
+        if (buttonElement) {
+            buttonElement.classList.add('active'); // Marchează butonul nou
+            activeChannelButton = buttonElement;
+        }
+    }
+
+
+    // 3. GENERAREA GRILEI DE CANALE
+    function displayChannels(channels) {
+        if (!canaleContainer) return;
+
+        canaleContainer.innerHTML = '';
         
         channels.forEach(channel => {
-            const button = document.createElement('a');
-            // Folosim clasa CSS '.canal' de la tine și adăugăm 'canal-link' pentru a putea folosi :hover
-            button.className = 'canal canal-link'; 
+            const button = document.createElement('button'); // Modificat din 'a' în 'button'
+            button.className = 'canal'; // Folosim clasa CSS '.canal'
             
-            // Setăm link-ul ca URL extern (pentru a deschide stream-ul într-o fereastră nouă/Player)
-            // NOTĂ: Dacă dorești să încarci stream-ul într-un player pe pagină, ar trebui să folosim un 'button'
-            // și să implementăm funcția loadChannel din conversațiile anterioare.
-            
-            // Momentan, folosim A (link) pentru a merge la sursa directă
-            button.href = channel.link; 
-            button.target = "_blank"; // Deschide în fereastră nouă
+            // Atribuim funcția la click pentru a încărca stream-ul în Player
+            button.onclick = (e) => {
+                e.preventDefault(); // Oprește orice comportament implicit
+                loadChannel(channel.nume, channel.link, button);
+            };
             
             // Structura HTML pentru noul design
             button.innerHTML = `<img src="${channel.sigla}" alt="${channel.nume} Logo"><span>${channel.nume}</span>`;
             
             canaleContainer.appendChild(button);
         });
+
+        // 4. ÎNCARCĂ CANALUL IMPLICIT LA PORNIRE
+        const firstButton = canaleContainer.querySelector('.canal');
+        if(firstButton && tvChannels.length > 0) {
+            // Încărcăm primul canal (Digi 24)
+            loadChannel(tvChannels[0].nume, tvChannels[0].link, firstButton);
+        }
     }
 
-    // 2. FILTRAREA CANALELOR (Nouă funcționalitate pe care o vom adăuga)
-    
-    // ...
 
-    // Afișează toate canalele la pornire
+    // Pornirea aplicației: Afișează toate canalele și încarcă primul canal
     displayChannels(tvChannels);
 };
