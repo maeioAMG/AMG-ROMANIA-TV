@@ -1,0 +1,32 @@
+name: DeepSeek Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  code-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: DeepSeek Code Review
+        uses: hustcer/deepseek-review@v1
+        with:
+          chat-token: ${{ secrets.CHAT_TOKEN }}
+          model: deepseek-chat
+          temperature: 0.3
+          sys-prompt: |
+            Ești un senior code reviewer specializat în JavaScript, HTML și CSS.
+            Analizează următoarele modificări de cod.
+            Identifică: bug-uri, vulnerabilități de securitate, probleme de performanță.
+            Pentru fiecare problemă găsită, oferă o soluție concretă.
+            Categorisește: [BUG], [SECURITATE], [PERFORMANȚĂ] sau [STIL].
+            Scrie review-ul în limba română.
